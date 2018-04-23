@@ -53,7 +53,7 @@ passport.use( new Auth0Strategy({
             else{
                 db.create_user([displayName, id, picture, emails[0].value]).then ( createdUser => {
                     return done(null, createdUser[0].id)
-                })
+                }).catch( e => console.log(e))
             }
         })
 }))
@@ -64,6 +64,7 @@ passport.serializeUser( (id, done) => {
 })
 
 passport.deserializeUser( (id, done) => {
+    console.log("something")
     app.get('db').find_session_user([id]).then( user => {
         return done(null, user[0])
     })
