@@ -22,6 +22,10 @@ const{
     CONNECTION_STRING
 } = process.env
 
+massive(CONNECTION_STRING).then( db => {
+    app.set('db', db);
+})
+
 app.use(session({
     secret: SESSION_SECRET,
     resave: false,
@@ -39,22 +43,35 @@ passport.use( new Auth0Strategy({
     scope: 'openid profile email'
 }, function (accessToken, refreshToken, extraParams, profile, done){
         //db calls
+        const db = app.get('db');
+        const {id, displayName, picture, emails} = profile;
+        console.log(profile)
+        db.find_user([id]).then( users => {
+            if(users[0]){
+                return done(null, users[0].id)
+            }
+            else{
+                db.create_user([displayName, id, picture, emails[0].value]).then ( createdUser => {
+                    return done(null, createdUser[0].id)
+                })
+            }
+        })
 }))
 
 passport.serializeUser( (id, done) => {
     console.log(id)
-    done(null, id)
+    return done(null, id)
 })
 
 passport.deserializeUser( (id, done) => {
     app.get('db').find_session_user([id]).then( user => {
-        done(null, user[0])
+        return done(null, user[0])
     })
 })
 
 app.get('/auth', passport.authenticate('auth0'));
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: 'http://localhost:3005/#/dashboard',         
+    successRedirect: 'http://localhost:3000/#/dashboard',         
     failureRedirect: 'http://localhost:3000'
 }))
 

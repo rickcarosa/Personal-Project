@@ -16,3 +16,6 @@ create table carts(
 select * from users;
 select * from carts;
 
+/* to find user that is logged in */
+select * from users
+where auth_id = $1;  
