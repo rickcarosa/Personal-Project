@@ -1,0 +1,15 @@
+
+.main_title{
+    text-align: center;
+    font-size: 60px;
+    margin-top: 250px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.sign_in{
+    display: block;
+    margin: auto;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 18px;
+}

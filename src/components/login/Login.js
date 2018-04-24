@@ -1,12 +1,13 @@
 import React from 'react';
-
+import './Login.css';
 
 function Login(){
     return(
         <div className = "App">
-             <a href = {process.env.REACT_APP_LOGIN} > 
-                <button> Title, Picture, Login </button>
-            </a> 
+            <div className = 'main_title'> ShowMania </div>
+                <a href = {process.env.REACT_APP_LOGIN} > 
+                    <button className = 'sign_in'> Login </button>
+                </a> 
         </div>
     )
 }

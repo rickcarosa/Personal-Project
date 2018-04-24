@@ -9,7 +9,7 @@ class Nav extends Component{
         return(
             <header className = 'Navbar'>
                 <div className = "title"> Title </div>
-                    <nav class = 'navigation'>
+                    <nav className = 'navigation'>
                         <ul>
                             <Link to = '/dashboard'> <li> Home </li> </Link>
                             <Link to = '/shows'> <li> Shows </li> </Link>

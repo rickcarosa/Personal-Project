@@ -89,4 +89,6 @@ app.get('/logout', function(req, res) {
     res.redirect('http://localhost:3000')
 })
 
+// app.get('/api/shows', controller.read)
+
 app.listen(3005, () => console.log('Nachos are ready, hot, hot, hot!'));
