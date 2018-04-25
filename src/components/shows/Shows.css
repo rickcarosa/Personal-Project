@@ -1,0 +1,25 @@
+.x{
+    width: 15%;
+    display: block;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.get_shows{
+    text-align: center;
+    margin: 20px 0;
+}
+
+.img {
+    display: flex;
+    justify-content: space-around;
+}
+
+.add{
+    padding: 8px 8px 5px 8px;
+    margin-bottom: 20px;
+}
+
+.info{
+    text-align: center;
+}

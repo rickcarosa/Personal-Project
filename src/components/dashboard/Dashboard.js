@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Nav from '../nav/Nav';
 import './Dashboard.css';
-import axios from 'axios';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {getUser} from '../../ducks/reducer';
