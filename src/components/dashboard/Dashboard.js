@@ -1,37 +1,52 @@
 import React, {Component} from 'react';
 import Nav from '../nav/Nav';
+import axios from 'axios';
 import './Dashboard.css';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {getUser} from '../../ducks/reducer';
-import house from './house.jpg';
+
 
 class Dashboard extends Component{
     constructor(){
         super()
         this.state = {
-            display: []
+            popular: [],
+            api_key: '5ac62073c7fea542488a55bf2a3bfd54',
+            picture_path: 'https://image.tmdb.org/t/p/w500'
+
         }
     }
 
     componentDidMount(){
         this.props.getUser();
+        axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=${this.state.api_key}&language=en-US`).then( res => {
+            this.setState({
+                popular: res.data.results
+            })
+            console.log(this.state.popular)
+        })
     }
 
 
 
     render(){
-
-        // const {getUser} = this.props
-        // // console.log(this.props)
+        console.log(this.state.popular)
+        var popularShows = this.state.popular.map( (e, i) => {
+            return(
+                <div key = {e.id}>
+                    <div className = 'popular'>
+                        <img className = 'poster' src={this.state.picture_path+e.poster_path} alt='movie poster' />
+                    </div>
+                </div>
+            )
+        })
 
         return(
             <div> 
                 <Nav/>
                 <Link to = '/shows'> <button className = 'show_button'> Search for Shows! </button> </Link>
-                <div className = 'pictures'>
-                    <img src = {house} alt= 'house' />
-                </div>
+                {popularShows}
             </div>
         )
     }

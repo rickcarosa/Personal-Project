@@ -45,14 +45,16 @@ passport.use( new Auth0Strategy({
         //db calls
         const db = app.get('db');
         const {id, displayName, picture, emails} = profile;
-        console.log(profile)
+        // console.log(profile)
         db.find_user([id]).then( users => {
             if(users[0]){
                 return done(null, users[0].id)
             }
             else{
                 db.create_user([displayName, id, picture, emails[0].value]).then ( createdUser => {
-                    return done(null, createdUser[0].id)
+                    db.create_cart(user[0].id).then(cart => {
+                        return done(null, cart[0].user_id)
+                    })
                 }).catch( e => console.log(e))
             }
         })
@@ -78,8 +80,10 @@ app.get('/auth/callback', passport.authenticate('auth0', {
 
 app.get('/auth/me', function(req, res) {            
     if(req.user){
-        res.status(200).send(req.user);
+        // console.log('hitting req.user', req.user)
+        res.send(req.user);
     } else {
+        // console.log('hitting else')
         res.status(401).send()                       
     }
 })
@@ -90,5 +94,6 @@ app.get('/logout', function(req, res) {
 })
 
 app.get('/api/cart', controller.read)
+app.post('/api/show', controller.create )
 
 app.listen(3005, () => console.log('Nachos are ready, hot, hot, hot!'));

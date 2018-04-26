@@ -8,10 +8,10 @@ create table users(
 
 create table carts(
     id serial primary key,
-    user_id integer references users (id),
+    user_id integer references users(id),
     show_title text,
-    quantity integer,
-    price real
+    price real,
+    image text
 );
 
 -- create table shows(

@@ -6,3 +6,13 @@
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+.popular{
+    display: flex;
+    justify-content: space-around;
+}
+
+.poster{
+    width: 250px;
+    height: 10%;
+}

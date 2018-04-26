@@ -1,3 +1,6 @@
+insert into carts(user_id, show_title, price, image)
+
+values($1, $2, $3, $4);
+
 select * from carts
-join users on users.id = carts.user_id
-where users.id = $1
+where user_id = $1;

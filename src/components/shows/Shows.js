@@ -3,6 +3,8 @@ import Nav from '../nav/Nav';
 import axios from 'axios';
 import x from './x.png';
 import './Shows.css';
+import {connect} from 'react-redux';
+import {addToCart} from '../../ducks/reducer';
 
 class Shows extends Component{
     constructor(){
@@ -31,14 +33,15 @@ class Shows extends Component{
     render(){
 
         var showList = this.state.shows.map( (e, i) => {
+            let price = e.show.rating.average * 10
             return(
                 <div key={e.show.id}>
                     <div className = 'info'>
                         {e.show.image ? ( <div> <img className = 'x' src = {e.show.image.medium} alt = "showImg"/> </div> ) : <img className = "x" src = {x} alt = 'N/A'/> } 
                         {e.show.name} 
                         {e.show.rating.average ? <div> <p> Rating: {e.show.rating.average} </p> </div> : <p> Rating: N/A </p>}
-                        {e.show.rating.average ? <div className = 'price'> <p> Price: ${e.show.rating.average * 10} </p> </div> : <p> Price: ${Math.trunc((Math.random() * 10) + 1)} </p> }
-                        <button className = 'add'> Add to Cart! </button>
+                        {e.show.rating.average ? <div className = 'price'> <p> Price: ${price} </p> </div> : <p> Price: ${Math.trunc((Math.random() * 100))} </p> }
+                        <button className = 'add' onClick = {() => addToCart(e.show.name, e.show.image.medium, price)}> Add to Cart! </button>
                     </div>
                 </div>
             )
@@ -57,4 +60,10 @@ class Shows extends Component{
     }
 }
 
-export default Shows;
+function mapStateToProps(state){
+    return{
+        cart: state.cart
+    }
+}
+
+export default connect(mapStateToProps, {addToCart}) (Shows);
