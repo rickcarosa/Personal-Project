@@ -11,29 +11,22 @@ create table carts(
     user_id integer references users(id),
     show_title text,
     price real,
-    image text
+    image_cart text
 );
 
--- create table shows(
---     id serial primary key
---     title text
---     price real
--- );
+create table orders(
+    id serial primary key,
+    user_id integer, 
+    order_ts timestamp
+);
 
--- create table orders(
---     id serial primary key
---     user_id integer references users(id)
---     order_ts timestamp
---     items
--- );
-
--- create table order_items(
---     id serial primary key
---     order_id integer references users(id)
---     show_id integer references shows(id)
---     quantity integer,
---     price real
--- );
+create table order_items(
+    id serial primary key,
+    order_id integer references order(id),
+    show_id integer, 
+    quantity integer,
+    price real
+);
 
 select * from users;
 select * from carts;

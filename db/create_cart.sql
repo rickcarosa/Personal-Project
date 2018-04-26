@@ -1,4 +1,4 @@
-insert into carts(user_id, show_title, price, image)
+insert into carts(user_id, show_title, price, image_cart)
 
 values($1, $2, $3, $4);
 

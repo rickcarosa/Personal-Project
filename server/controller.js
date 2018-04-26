@@ -3,7 +3,6 @@ module.exports = {
     read: (req, res) => {
         // console.log('haha')
         const {id} = req.user
-        // console.log(req.user)
         const db = req.app.get('db')
         db.get_cart([id]).then( cart => {
             // console.log(cart, 'cart');
@@ -16,11 +15,22 @@ module.exports = {
         console.log(req.body)
         const {name, price, picture} = req.body
         const db = req.app.get('db')
+        if (req.user){
+            db.create_cart([req.user.id, name, price, picture]).then( cart => {
+                // console.log(cart)
+                res.status(200).send(cart)
+            }).catch(console.log)
+        }
+    },
 
-        db.create_cart([req.user.id, name, price, picture]).then( cart => {
+    delete: (req, res) => {
+        let id = req.params.id
+        console.log(req.params.id)
+        let db = req.app.get('db')
+        db.delete_show([id, req.user.id]).then( (cart) => {
             // console.log(cart)
             res.status(200).send(cart)
-        })
+        }).catch(console.log)
     }
 
     

@@ -13,6 +13,7 @@
 }
 
 .poster{
-    width: 250px;
-    height: 10%;
+    width: auto;
+    height: 250px;
+    padding: 5px;
 }

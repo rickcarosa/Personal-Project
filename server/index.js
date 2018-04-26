@@ -66,7 +66,6 @@ passport.serializeUser( (id, done) => {
 })
 
 passport.deserializeUser( (id, done) => {
-    console.log("something")
     app.get('db').find_session_user([id]).then( user => {
         return done(null, user[0])
     })
@@ -94,6 +93,8 @@ app.get('/logout', function(req, res) {
 })
 
 app.get('/api/cart', controller.read)
-app.post('/api/show', controller.create )
+app.post('/api/show', controller.create)
+app.delete('/api/show/:id', controller.delete)
+
 
 app.listen(3005, () => console.log('Nachos are ready, hot, hot, hot!'));

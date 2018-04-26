@@ -23,18 +23,20 @@ class Dashboard extends Component{
         axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=${this.state.api_key}&language=en-US`).then( res => {
             this.setState({
                 popular: res.data.results
+            }, ()=>{
+
+                console.log(this.state.popular)
             })
-            console.log(this.state.popular)
         })
     }
 
 
 
     render(){
-        console.log(this.state.popular)
+
         var popularShows = this.state.popular.map( (e, i) => {
             return(
-                <div key = {e.id}>
+                <div key = {e.name}>
                     <div className = 'popular'>
                         <img className = 'poster' src={this.state.picture_path+e.poster_path} alt='movie poster' />
                     </div>
