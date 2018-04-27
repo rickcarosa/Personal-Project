@@ -92,8 +92,10 @@ app.get('/logout', function(req, res) {
     res.redirect('http://localhost:3000')
 })
 
-app.get('/api/cart', controller.read)
-app.post('/api/show', controller.create)
+app.get('/api/cart', controller.cart)
+app.get('/api/order', controller.order)
+app.post('/api/order', controller.createOrder)
+app.post('/api/show', controller.createCart)
 app.delete('/api/show/:id', controller.delete)
 
 

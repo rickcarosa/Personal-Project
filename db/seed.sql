@@ -16,20 +16,22 @@ create table carts(
 
 create table orders(
     id serial primary key,
-    user_id integer, 
-    order_ts timestamp
+    user_id integer,
+    order_ts timestamp, 
+    total_price real
 );
 
 create table order_items(
     id serial primary key,
     order_id integer references order(id),
     show_id integer, 
-    quantity integer,
     price real
 );
 
 select * from users;
 select * from carts;
+select * from orders;
+select * from order_items;
 
 /* to find user that is logged in */
 select * from users
