@@ -10,6 +10,20 @@
     margin: 20px 0;
 }
 
+.find_shows{
+    background-color: #233237;
+    color: #eac67a;
+    padding: 6px 14px;
+    margin-left: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.search{
+    padding: 8px 10px;
+    font-size: 14px;
+}
+
 .img {
     display: flex;
     justify-content: space-around;
@@ -18,6 +32,9 @@
 .add{
     padding: 8px 8px 5px 8px;
     margin-bottom: 20px;
+    background-color: #233237;
+    color: #eac67a;
+    cursor: pointer;
 }
 
 .info{

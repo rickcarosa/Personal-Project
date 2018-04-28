@@ -8,6 +8,7 @@ const express = require('express')
     , passport = require('passport')
     , Auth0Strategy = require('passport-auth0')
     , massive = require('massive')
+    , stripe = require('stripe')('sk_test_9zaYd9mFXnQ0YoT56VtcHpaP')
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -97,6 +98,17 @@ app.get('/api/order', controller.order)
 app.post('/api/order', controller.createOrder)
 app.put('/api/show', controller.createCart)
 app.delete('/api/show/:id', controller.delete)
+
+app.post('/charge', function(req, res){
+    var token = req.body.stripeToken;
+    var totalPrice = req.body.totalPrice
+    const charge = stripe.charges.create({
+        amount: totalPrice,
+        currency: 'usd',
+        source: 'token',
+        description: 'Example charge'
+      })
+})
 
 
 app.listen(3005, () => console.log('Nachos are ready, hot, hot, hot!'));

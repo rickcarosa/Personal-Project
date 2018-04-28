@@ -1,10 +1,13 @@
 
 .show_button{
     padding: 10px;
-    display: block;
+    display: flex;
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;
+    background-color: #233237;
+    color: #eac67a;
+    cursor: pointer;
 }
 
 .popular{
@@ -18,7 +21,17 @@
     padding: 5px;
 }
 
-.container {
+.container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.show_container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+h1{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #233237;
 }

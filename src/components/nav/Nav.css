@@ -1,22 +1,60 @@
 .Navbar {
     width: 100%;
     height: 75px;
-    background: lightgray;
+    background: #233237;
     display: flex;
     justify-content: space-around;
     align-items: center;
   }
   
   .title{
-    font-size: 30px
+    font-size: 30px;
+    cursor: pointer;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+  }
+
+  a:vistited{
+    color: #EAC67A;
+  }
+
+  a:hover{
+    color: #984B43;
+  }
+
+  a:active{
+    color: #EAC67A;
   }
   
   li {
     display: inline-block;
     margin-left: 16px;
     text-transform: uppercase;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
   }
   
   a{
     text-decoration: none;
+    color: #EAC67A;
   }
+
+  .menu_icon{
+    display: none;
+  }
+
+  @media(max-width: 750px){
+    .Navbar{
+      justify-content: space-around;
+    }
+    .navigation{
+      display: none;
+    }
+
+    .menu_icon{
+      display: flex;
+      width: 64px;
+      cursor: pointer;
+    }
+    
+  }
+
+ 

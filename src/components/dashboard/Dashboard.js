@@ -47,9 +47,12 @@ class Dashboard extends Component{
         return(
             <div> 
                 <Nav/>
-                <Link to = '/shows'> <button className = 'show_button'> Search for Shows! </button> </Link>
-                <div className='container'>
-                {popularShows}
+                <div className = 'container'>
+                    <h1> See Whats Trending </h1>
+                    <Link to = '/shows'> <button className = 'show_button'> Search for Shows! </button> </Link>
+                </div>
+                <div className='show_container'>
+                    {popularShows}
                 </div>
             </div>
         )
