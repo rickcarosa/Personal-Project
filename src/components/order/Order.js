@@ -10,9 +10,25 @@ class Order extends Component{
     }
 
     render(){
+
+        let newOrder = null
+        if(this.props.order.length > 0){
+            newOrder = this.props.order.map( (e, i) => {
+                return(
+                    <div key = {e.orderId}>
+                        {e.show_title}
+                        {e.price}
+                        {e.order_ts}
+                        {e.total_price}
+                    </div>
+                )
+            })
+        }
+
         return(
             <div className = 'Order'>
                 <Nav/>
+                {newOrder}
             </div>
         )
     }

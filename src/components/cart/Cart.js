@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import Nav from '../nav/Nav';
-import axios from 'axios';
-import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {getCart, deleteShow, getOrder} from '../../ducks/reducer';
+import {getCart, deleteShow, addToOrder} from '../../ducks/reducer';
 
 class Cart extends Component{
     
@@ -11,16 +9,11 @@ class Cart extends Component{
         this.props.getCart()
     }
 
-    addOrder(){
-        axios.post('/api/order', {time:, totalPrice:, show_id:, show_price:}).then( () => {
-            this.props.getOrder()
-        })
-    }
-
     render(){
         console.log(this.props)
       
         let newCart = null
+        let totalPrice = null
         if(this.props.cart.length > 0){
             newCart = this.props.cart.map((e, i) => {
                 console.log(e)
@@ -31,17 +24,24 @@ class Cart extends Component{
                         {e.price}
                         <button onClick = { () => this.props.deleteShow(e.id)}> Remove </button>
                     </div>
+                   
                 )
             })
+            totalPrice = this.props.cart.reduce((acc, curr) => {
+                console.log(this.props.cart)
+                return acc + curr.price
+            }, 0)
         }
+
         
     
     return(
         <div className = "Cart">
             <Nav/>
             {newCart}
-            <Link to = '/order'> <button className = 'purchase' onClick = {() => this.addOrder()}> Purchase! </button> </Link>
-
+            {totalPrice}
+            <br/>
+            <button className = 'purchase' onClick = {() => this.props.addToOrder()}> Purchase! </button>
         </div>
     )
 }
@@ -49,8 +49,8 @@ class Cart extends Component{
 
 function mapStateToProps(state){
     return{
-        cart: state.cart
+        cart: state.cart,
     }
 }
 
-export default connect(mapStateToProps, {getCart, deleteShow, getOrder}) (Cart);
+export default connect(mapStateToProps, {getCart, deleteShow, addToOrder}) (Cart);

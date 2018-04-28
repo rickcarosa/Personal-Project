@@ -11,6 +11,7 @@ const GET_CART = "GET_CART"
 const ADD_TO_CART = "ADD_TO_CART"
 const DELETE_FROM_CART = "DELETE_FROM_CART"
 const GET_ORDER = "GET_ORDER"
+const ADD_TO_ORDER = "ADD_TO_ORDER"
 
 export function getUser(){
     let userData = axios.get('/auth/me').then( res => {
@@ -33,7 +34,7 @@ export function getCart(){
 }
 
 export function addToCart(name, picture, price){
-    let addCart = axios.post('/api/show', {name, picture, price}).then( res => {
+    let addCart = axios.put('/api/show', {name, picture, price}).then( res => {
         // console.log(res.data)
         return res.data;
     })
@@ -64,6 +65,16 @@ export function getOrder(){
     }
 }
 
+export function addToOrder(show_title, show_price, time, totalPrice){
+    let addOrder = axios.post('/api/order', {show_title, show_price, time, totalPrice}).then( res => {
+        return res.data;
+    })
+    return{
+        type: ADD_TO_ORDER,
+        payload: addOrder
+    }
+}
+
 export default function reducer(state = initialState, action){
     switch(action.type){
         case GET_USER_INFO + '_FULFILLED':
@@ -76,6 +87,10 @@ export default function reducer(state = initialState, action){
         case DELETE_FROM_CART + '_FULFILLED':
             return Object.assign( {}, state, {cart: action.payload})
         case GET_ORDER + '_FULFILLED':
+        console.log(action.payload)
+            return Object.assign( {}, state, {order: [...action.payload]})
+        case ADD_TO_ORDER + '_FULFILLED':
+        console.log(action.payload)
             return Object.assign( {}, state, {order: [...action.payload]})
         default:
             return state;

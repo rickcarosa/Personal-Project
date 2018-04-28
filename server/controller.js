@@ -35,10 +35,10 @@ module.exports = {
 
     createOrder: (req, res) => {
         console.log(req.body)
-        const {time, totalPrice, show_id, show_price} = req.body
+        const {time, totalPrice, show_title, show_price} = req.body
         const db = req.app.get('db')
         db.create_order([req.user.id, time, totalPrice]).then( order => {
-                db.create_order_item([order.id, show_id, show_price]).then( order => {
+                db.create_order_item([order.id, show_title, show_price]).then( order => {
                     res.status(200).send(order)
                         }).catch(console.log)
                 })
@@ -46,7 +46,7 @@ module.exports = {
 
     delete: (req, res) => {
         let id = req.params.id
-        console.log(req.params.id)
+        // console.log(req.params.id)
         let db = req.app.get('db')
         db.delete_show([id, req.user.id]).then( (cart) => {
             // console.log(cart)

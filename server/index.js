@@ -95,7 +95,7 @@ app.get('/logout', function(req, res) {
 app.get('/api/cart', controller.cart)
 app.get('/api/order', controller.order)
 app.post('/api/order', controller.createOrder)
-app.post('/api/show', controller.createCart)
+app.put('/api/show', controller.createCart)
 app.delete('/api/show/:id', controller.delete)
 
 

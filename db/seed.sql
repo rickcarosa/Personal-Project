@@ -23,8 +23,8 @@ create table orders(
 
 create table order_items(
     id serial primary key,
-    order_id integer references order(id),
-    show_id integer, 
+    order_id integer references orders(id),
+    show_title text, 
     price real
 );
 
