@@ -23,7 +23,7 @@ class Cart extends Component{
                         <img className = 'x' src = {e.image_cart} alt = 'show_image'/>
                         <div className = 'show_data'>
                             <span className = "show_title"> {e.show_title} </span>
-                            <span className = "show_price"> {e.price} </span>
+                            <span className = "show_price"> ${e.price} </span>
                             <button className = 'delete' onClick = { () => this.props.deleteShow(e.id)}> Remove </button>
                         </div>
                     </div>
@@ -41,11 +41,11 @@ class Cart extends Component{
     return(
         <div className = "Cart">
             <Nav/>
-            {newCart}
             <div className = 'containter_buy'>
                 <p className = 'total_price'> Total: ${totalPrice} </p>
                 <button className = 'purchase' onClick = {() => this.props.addToOrder()}> Purchase! </button>
             </div>
+            {newCart}
             <form action="/charge" method="POST">
                    <script
                     src="https://checkout.stripe.com/checkout.js" class="stripe-button"

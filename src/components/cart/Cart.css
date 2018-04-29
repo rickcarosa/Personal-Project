@@ -1,7 +1,6 @@
 .x{
     width: 15%;
     display: flex;        
-    /* margin: auto; */
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -10,11 +9,15 @@
     text-align: center;
 }
 
-.total_price{
-    margin-left: 20%;
+.purchase{
+    margin-left: 80%;
+    
 }
 
-.purchase{
-    margin-left: 20%;
+.total_price{
+    margin-left: 80%;
+ 
 }
+
+
 

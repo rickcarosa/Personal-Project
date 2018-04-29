@@ -1,10 +1,15 @@
 import React, {Component} from 'react';
 import './Nav.css';
-import menu_icon from './menu_icon.png';
+// import menu_icon from './menu_icon.png';
 import {Link} from 'react-router-dom';
 
 
 class Nav extends Component{
+
+
+        menu(){
+            document.getElementById("menu").classList.toggle("show");
+        }
 
         render(){
         return(
@@ -20,8 +25,19 @@ class Nav extends Component{
                         </ul>
                     </nav>
 
-                    <img className = 'menu_icon' src = {menu_icon} alt = 'menu_icon'/> 
+                    {/* <img className = 'menu_icon' src = {menu_icon} alt = 'menu_icon'/>  */}
                 
+                    <div className = "dropdown">
+                        <button onClick = { () => this.menu()} className = "dropbtn">Menu</button>
+                        <div id = 'menu' className = "dropdown-content">
+                            <Link to = '/dashboard'> Home </Link>
+                            <Link to = '/shows'> Shows </Link>
+                            <Link to = '/cart'> Cart </Link>
+                            <Link to = '/order'> Order </Link>
+                            <a href = 'http://localhost:3005/logout'> Logout</a>
+                        </div>
+                    </div>
+
             </header>
         )
     }
