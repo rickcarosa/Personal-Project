@@ -31,8 +31,6 @@ class Dashboard extends Component{
         })
     }
 
-
-
     render(){
 
         var popularShows = this.state.popular.map( (e, i) => {
@@ -41,7 +39,7 @@ class Dashboard extends Component{
                 <div key = {e.name}>
                     <div className = 'popular'>
                         <img className = 'poster' src={this.state.picture_path+e.poster_path} alt='movie poster' 
-                             onClick = {() => addToCart(e.name, this.state.picture_path+e.poster_path, price )}/> 
+                             onClick = {() => addToCart(e.name, e.overview, this.state.picture_path+e.poster_path, price )}/> 
                     </div>
                 </div>
             )

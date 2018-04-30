@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Nav from '../nav/Nav';
 import Footer from '../footer/Footer';
+import './Order.css';
 import {connect} from 'react-redux';
 import {getOrder} from '../../ducks/reducer';
 
@@ -29,7 +30,7 @@ class Order extends Component{
         return(
             <div className = 'Order'>
                 <Nav/>
-                {newOrder}
+                <div className = 'neworder'> {newOrder} </div>
                 <Footer/>
             </div>
         )

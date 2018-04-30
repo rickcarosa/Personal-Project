@@ -1,3 +1,7 @@
+.get_shows_parent{
+    position: relative;
+}
+
 .x{
     width: 15%;
     display: block;
@@ -8,6 +12,13 @@
 .get_shows{
     text-align: center;
     margin: 20px 0;
+    height: 50px;
+}
+
+.showlist{
+    height: 100vh;
+    width: 100%;
+    overflow: auto;
 }
 
 .find_shows{

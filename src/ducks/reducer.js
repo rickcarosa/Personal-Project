@@ -33,9 +33,9 @@ export function getCart(){
     }
 }
 
-export function addToCart(name, picture, price){
-    let addCart = axios.put('/api/show', {name, picture, price}).then( res => {
-        // console.log(res.data)
+export function addToCart(name, description, picture, price){
+    let addCart = axios.put('/api/show', {name, description, picture, price}).then( res => {
+        console.log(res.data)
         return res.data;
     })
     return{
@@ -87,10 +87,10 @@ export default function reducer(state = initialState, action){
         case DELETE_FROM_CART + '_FULFILLED':
             return Object.assign( {}, state, {cart: action.payload})
         case GET_ORDER + '_FULFILLED':
-        console.log(action.payload)
+        console.log(action.payload, 'what')
             return Object.assign( {}, state, {order: [...action.payload]})
         case ADD_TO_ORDER + '_FULFILLED':
-        console.log(action.payload)
+        console.log(action.payload, 'booooooooo')
             return Object.assign( {}, state, {order: [...action.payload]})
         default:
             return state;

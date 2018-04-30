@@ -1,22 +1,82 @@
-.x{
-    width: 15%;
-    display: flex;        
-    margin-top: 20px;
-    margin-bottom: 20px;
+.cart_container{
+    display: flex;
+    justify-content: space-around;
 }
 
-.show_data{
+.x_cart{
+    width: 200px;
+    height: 300px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+}
+
+.cart_container_two{
     text-align: center;
+    margin: auto;
+    margin-top: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+    color: #233237;
+}
+
+.cart_container_three{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 5%
+}
+
+.show_title{
+    margin-top: 20px;
+    font-size: 30px;
+    text-decoration: underline;
+    color: #233237;
 }
 
 .purchase{
-    margin-left: 80%;
-    
+    cursor: pointer;
+    padding: 8px 20px;
+    background-color: #233237;
+    color: #eac67a;
+    font-size: 16px;
+    margin-left: 50px;
 }
 
 .total_price{
-    margin-left: 80%;
- 
+    margin-left: 50px;
+    color: #233237
+}
+
+.purchase:hover{
+    background-color: #eac67a;
+    color: #984B43;
+}
+
+.summary{
+    font-size: 18px;
+} 
+
+.description{
+    margin: 0 50px;
+    
+}
+
+.delete{
+    cursor: pointer;
+    padding: 8px 20px;
+    background-color: #233237;
+    color: #eac67a;
+    font-size: 16px;
+}
+
+.delete:hover{
+    background-color: #eac67a;
+    color: #984B43;
+}
+
+.newcart{
+    height: 100vh;
+    /* width: 100%; */
+    overflow: auto;
 }
 
 

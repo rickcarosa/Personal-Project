@@ -22,11 +22,11 @@ module.exports = {
     },
     
     createCart: (req, res) => {
-        console.log(req.body)
-        const {name, price, picture} = req.body
+        // console.log(req.body)
+        const {name, description, price, picture} = req.body
         const db = req.app.get('db')
         if (req.user){
-            db.create_cart([req.user.id, name, price, picture]).then( cart => {
+            db.create_cart([req.user.id, name, description, price, picture]).then( cart => {
                 // console.log(cart)
                 res.status(200).send(cart)
             }).catch(console.log)
@@ -34,8 +34,8 @@ module.exports = {
     },
 
     createOrder: (req, res) => {
-        console.log(req.body)
         const {time, totalPrice, show_title, show_price} = req.body
+        console.log(req.body)
         const db = req.app.get('db')
         db.create_order([req.user.id, time, totalPrice]).then( order => {
                 db.create_order_item([order.id, show_title, show_price]).then( order => {

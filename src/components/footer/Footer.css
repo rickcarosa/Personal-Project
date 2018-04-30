@@ -4,7 +4,6 @@
     background: #233237;
     display: flex;
     justify-content: space-around;
-    position: absolute;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-top: 20px;
 }

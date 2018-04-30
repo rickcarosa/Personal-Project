@@ -42,20 +42,20 @@ class Shows extends Component{
                         {e.show.name} 
                         {e.show.rating.average ? <div> <p> Rating: {e.show.rating.average} </p> </div> : <p> Rating: N/A </p>}
                         {e.show.rating.average ? <div className = 'price'> <p> Price: ${price} </p> </div> : <p> Price: ${Math.trunc((Math.random() * 100))} </p> }
-                        <button className = 'add' onClick = {() => addToCart(e.show.name, e.show.image.medium, price)}> Add to Cart! </button>
+                        <button className = 'add' onClick = {() => addToCart(e.show.name, e.show.summary, e.show.image.medium, price)}> Add to Cart! </button>
                     </div>
                 </div>
             )
         })
 
         return(
-            <div>
+            <div className = 'get_shows_parent'>
                 <Nav/>
                 <div className = 'get_shows'>
                     <input className = 'search' placeholder = 'Search' onChange = {(event) => {this.addShows(event.target.value)}} /> 
                     <button className = 'find_shows' onClick = {() => this.updateShows()}> Find Shows! </button>
                 </div>
-                {showList}
+                <div className = 'showlist'> {showList} </div>
                 <Footer/>
             </div>
         )
