@@ -37,10 +37,6 @@
     color: #EAC67A;
   }
 
-  /* .menu_icon{
-    display: none;
-  } */
-
   .dropdown{
     display: none;
   }
@@ -53,12 +49,6 @@
     .navigation{
       display: none;
     }
-
-    /* .menu_icon{
-      display: flex;
-      width: 50px;
-      cursor: pointer;
-    } */
 
   .dropbtn {
       background-color: #EAC67A;
@@ -101,11 +91,6 @@
       color: #EAC67A;
       text-decoration: underline;
   }
-  
-  /* .dropdown:hover .dropdown-content {
-      display: block;
-      text-decoration: underline;
-  } */
 
   .show{
     display: block;

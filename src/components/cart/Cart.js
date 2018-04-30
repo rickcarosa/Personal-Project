@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Nav from '../nav/Nav';
 import './Cart.css';
+import Footer from '../footer/Footer';
 import {connect} from 'react-redux';
 import {getCart, deleteShow, addToOrder} from '../../ducks/reducer';
 
@@ -58,6 +59,7 @@ class Cart extends Component{
                     data-zip-code="true">
                 </script>
             </form>
+            <Footer/>
         </div>
 
 

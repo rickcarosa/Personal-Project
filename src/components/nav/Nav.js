@@ -24,11 +24,9 @@ class Nav extends Component{
                             <a href = 'http://localhost:3005/logout'> <li> Logout </li> </a>
                         </ul>
                     </nav>
-
-                    {/* <img className = 'menu_icon' src = {menu_icon} alt = 'menu_icon'/>  */}
                 
                     <div className = "dropdown">
-                        <button onClick = { () => this.menu()} className = "dropbtn">Menu</button>
+                        <button onClick = { () => this.menu()} className = "dropbtn"> Menu </button>
                         <div id = 'menu' className = "dropdown-content">
                             <Link to = '/dashboard'> Home </Link>
                             <Link to = '/shows'> Shows </Link>
@@ -39,6 +37,8 @@ class Nav extends Component{
                     </div>
 
             </header>
+
+            
         )
     }
 }

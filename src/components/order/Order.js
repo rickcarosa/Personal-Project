@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Nav from '../nav/Nav';
+import Footer from '../footer/Footer';
 import {connect} from 'react-redux';
 import {getOrder} from '../../ducks/reducer';
 
@@ -29,6 +30,7 @@ class Order extends Component{
             <div className = 'Order'>
                 <Nav/>
                 {newOrder}
+                <Footer/>
             </div>
         )
     }

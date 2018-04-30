@@ -21,6 +21,11 @@
     padding: 5px;
 }
 
+.poster:hover {
+    opacity: .3;
+    cursor: pointer;
+}
+
 .container{
     display: flex;
     justify-content: space-around;

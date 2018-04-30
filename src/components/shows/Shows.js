@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Nav from '../nav/Nav';
+import Footer from '../footer/Footer';
 import axios from 'axios';
 import x from './x.png';
 import './Shows.css';
@@ -55,6 +56,7 @@ class Shows extends Component{
                     <button className = 'find_shows' onClick = {() => this.updateShows()}> Find Shows! </button>
                 </div>
                 {showList}
+                <Footer/>
             </div>
         )
     }

@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import Nav from '../nav/Nav';
+import Footer from '../footer/Footer';
 import axios from 'axios';
 import './Dashboard.css';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {getUser} from '../../ducks/reducer';
+import {getUser, addToCart} from '../../ducks/reducer';
 
 
 class Dashboard extends Component{
@@ -35,10 +36,12 @@ class Dashboard extends Component{
     render(){
 
         var popularShows = this.state.popular.map( (e, i) => {
+            let price = e.vote_average * 10
             return(
                 <div key = {e.name}>
                     <div className = 'popular'>
-                        <img className = 'poster' src={this.state.picture_path+e.poster_path} alt='movie poster' />
+                        <img className = 'poster' src={this.state.picture_path+e.poster_path} alt='movie poster' 
+                             onClick = {() => addToCart(e.name, this.state.picture_path+e.poster_path, price )}/> 
                     </div>
                 </div>
             )
@@ -54,6 +57,7 @@ class Dashboard extends Component{
                 <div className='show_container'>
                     {popularShows}
                 </div>
+                <Footer/>
             </div>
         )
     }
@@ -65,4 +69,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps, {getUser}) (Dashboard);
+export default connect(mapStateToProps, {getUser, addToCart}) (Dashboard);
