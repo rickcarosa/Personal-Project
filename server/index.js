@@ -8,7 +8,7 @@ const express = require('express')
     , passport = require('passport')
     , Auth0Strategy = require('passport-auth0')
     , massive = require('massive')
-    , stripe = require('stripe')('sk_test_9zaYd9mFXnQ0YoT56VtcHpaP')
+    , stripe = require('stripe')(process.env.S_STRIPE_KEY)
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -99,15 +99,16 @@ app.post('/api/order', controller.createOrder)
 app.put('/api/show', controller.createCart)
 app.delete('/api/show/:id', controller.delete)
 
-app.post('/charge', function(req, res){
-    var token = req.body.stripeToken;
-    var totalPrice = req.body.totalPrice
+app.post('/api/charge', function(req, res){
+    const db = app.get('db')
+    console.log(req.body.amount)
     const charge = stripe.charges.create({
-        amount: totalPrice,
+        amount: req.body.amount,
         currency: 'usd',
-        source: 'token',
+        source: req.body.token.id,
         description: 'Example charge'
       })
+      res.sendStatus(200) // clear out cart here
 })
 
 

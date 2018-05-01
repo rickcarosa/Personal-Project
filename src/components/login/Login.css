@@ -4,7 +4,7 @@
     font-size: 60px;
     margin-top: 250px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color:#233237;
+    color: #eac67a;
 }
 
 .sign_in{
@@ -15,4 +15,9 @@
     font-size: 18px;
     background-color: #233237;
     color: #eac67a;
+}
+
+#particles-js{
+    background: #233237;
+    height: 400px;
 }

@@ -46,7 +46,7 @@ function Footer(){
                     <div className = 'footer_section_header'>
                         <h2> Leaving? </h2>
                             <div className = 'footer_links'>
-                                <Link to = 'http://localhost:3005/logout'> <div> Logout </div> </Link>
+                                <a href = 'http://localhost:3005/logout'> <div> Logout </div> </a>
                             </div>
                     </div>
                 </div>

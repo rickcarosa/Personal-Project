@@ -15,16 +15,24 @@
     justify-content: space-around;
 }
 
-.poster{
+/* .poster{
     width: auto;
     height: 250px;
     padding: 5px;
-}
+} */
 
-.poster:hover {
+
+.poster>div:hover{
+    animation: opacity 1s ease forwards;
     opacity: .3;
     cursor: pointer;
-}
+  }
+
+.poster>div{
+    height: 50%;
+    opacity: 0;
+    
+  }
 
 .container{
     display: flex;
@@ -40,3 +48,12 @@ h1{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: #233237;
 }
+
+@keyframes opacity {
+    0% {
+        opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
