@@ -2,9 +2,10 @@ import React, {Component} from 'react';
 import Nav from '../nav/Nav';
 import './Cart.css';
 import Footer from '../footer/Footer';
-import Checkout from '../checkout/Checkout';
+// import Checkout from '../checkout/Checkout';
 import {connect} from 'react-redux';
 import {getCart, deleteShow, addToOrder} from '../../ducks/reducer';
+import Stripe from '../stripe/Stripe';
 
 class Cart extends Component{
     
@@ -42,7 +43,7 @@ class Cart extends Component{
                 return acc + curr.price
             }, 0)
         }
-console.log(totalPrice)
+            console.log(totalPrice)
         
     return(
         <div className = "Cart">
@@ -53,8 +54,11 @@ console.log(totalPrice)
                 <button className = 'purchase' onClick = {() => this.props.addToOrder()}> Purchase! </button>
             </div>
          
-            <Checkout 
-            total = {totalPrice * 100}/>
+            {/* <Checkout 
+            total = {totalPrice * 100}/> */}
+
+            <Stripe
+            total = {totalPrice * 100} />
             <Footer/>
         </div>
     )

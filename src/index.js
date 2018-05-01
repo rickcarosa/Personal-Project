@@ -4,9 +4,15 @@ import './index.css';
 import App from './App';
 import store from './store';
 import {Provider} from 'react-redux';
+import {StripeProvider} from 'react-stripe-elements';
+
 
 ReactDOM.render( 
 <Provider store = {store}>
-    <App />
+    <StripeProvider apiKey = {process.env.REACT_APP_STRIPE_KEY}>
+        
+        <App/> 
+        
+    </StripeProvider>
 </Provider> , document.getElementById('root'));
 

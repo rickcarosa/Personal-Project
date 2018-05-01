@@ -9,6 +9,7 @@ const express = require('express')
     , Auth0Strategy = require('passport-auth0')
     , massive = require('massive')
     , stripe = require('stripe')(process.env.S_STRIPE_KEY)
+    
 
 app.use(bodyParser.json());
 app.use(cors());
