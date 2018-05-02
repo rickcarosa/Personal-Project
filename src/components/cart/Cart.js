@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Nav from '../nav/Nav';
 import './Cart.css';
 import Footer from '../footer/Footer';
-// import Checkout from '../checkout/Checkout';
+import Checkout from '../checkout/Checkout';
 import {connect} from 'react-redux';
 import {getCart, deleteShow, addToOrder} from '../../ducks/reducer';
 import Stripe from '../stripe/Stripe';
@@ -48,9 +48,9 @@ class Cart extends Component{
         <div className = "Cart">
             <Nav/>
             <div className = 'newcart'> {newCart}  </div>
-         
-            {/* <Checkout 
-            total = {totalPrice * 100}/> */}
+        
+             <Checkout 
+            total = {totalPrice * 100}/>
 
 
             <div className = 'containter_buy'>

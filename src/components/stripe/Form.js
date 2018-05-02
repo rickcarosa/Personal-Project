@@ -34,7 +34,8 @@ class Form extends Component{
                 stripeKey = {process.env.REACT_APP_STRIPE_KEY}
                 amount = {this.props.amount}/>
                 <br/>
-            <button className = 'purchase' onClick = {() => this.props.addToOrder()}> Purchase! </button>
+                <button className = 'purchase'> Purchase! </button>
+                {/* <button className = 'purchase'   onClick = {() => this.props.addToOrder()}> Purchase! </button> */}
            </form>
         )
     }
@@ -46,4 +47,4 @@ function mapStateToProps(state){
     }
 }
 
-// export default connect(injectStripe(mapStateToProps, {addToOrder})) (Form);
+export default injectStripe (Form);

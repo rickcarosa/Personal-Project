@@ -15,11 +15,9 @@
     justify-content: space-around;
 }
 
-/* .poster{
-    width: auto;
-    height: 250px;
-    padding: 5px;
-} */
+.poster:hover{
+    opacity: 0.8
+}
 
 
 .poster>div:hover{
@@ -29,9 +27,12 @@
   }
 
 .poster>div{
-    height: 50%;
+    height: 65%;
     opacity: 0;
-    
+    text-align: center;
+    margin-top: 78px;
+    font-size: 30px;
+    color: #fffb00;
   }
 
 .container{

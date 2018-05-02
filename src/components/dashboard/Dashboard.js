@@ -39,10 +39,14 @@ class Dashboard extends Component{
             let price = e.vote_average * 10
             let style = {
                 background: `url(${this.state.picture_path+e.poster_path})`,
-                width: 'auto',
-                height: '200px',
-                padding: '5px'
+                width: '170px',
+                height: '285px',
+                padding: '5px',
+                backgroundpPosition: 'center',
+                backgroundSize: '100%',
+                backgroundRepeat: 'no-repeat'   
             }
+    
             return(
                 <div key = {e.name}>
                     <div className = 'popular'>
