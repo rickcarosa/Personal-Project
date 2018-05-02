@@ -39,7 +39,6 @@ class Cart extends Component{
                 )
             })
             totalPrice = this.props.cart.reduce((acc, curr) => {
-                // console.log(this.props.cart)
                 return acc + curr.price
             }, 0)
         }
@@ -49,16 +48,21 @@ class Cart extends Component{
         <div className = "Cart">
             <Nav/>
             <div className = 'newcart'> {newCart}  </div>
-            <div className = 'containter_buy'>
-                <p className = 'total_price'> Total: ${totalPrice}.00 </p>
-                <button className = 'purchase' onClick = {() => this.props.addToOrder()}> Purchase! </button>
-            </div>
          
             {/* <Checkout 
             total = {totalPrice * 100}/> */}
 
-            <Stripe
-            total = {totalPrice * 100} />
+
+            <div className = 'containter_buy'>
+                <p className = 'total_price'> Total: ${totalPrice}.00 </p>
+                <p className = 'card_details'> Card Details:</p>
+            <Stripe 
+            total = {totalPrice * 100} 
+            />
+            <br/>
+                
+            </div>
+
             <Footer/>
         </div>
     )

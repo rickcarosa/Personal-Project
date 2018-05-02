@@ -2,13 +2,15 @@ import React, {Component} from 'react';
 import {injectStripe} from 'react-stripe-elements';
 import Card from './Card';
 import axios from 'axios';
+import {connect} from 'react-redux';
+import {addToOrder} from '../../ducks/reducer';
 
 class Form extends Component{
     constructor(props) {
         super(props);
-        this.state = {
-            amount: 100
-        }
+        // this.state = {
+        //     amount: 100
+        // }
     }
 
     onSubmit(e){
@@ -31,10 +33,17 @@ class Form extends Component{
                 token = {this.onToken}
                 stripeKey = {process.env.REACT_APP_STRIPE_KEY}
                 amount = {this.props.amount}/>
-               <button> Pay ${this.state.amount}.00 </button>
+                <br/>
+            <button className = 'purchase' onClick = {() => this.props.addToOrder()}> Purchase! </button>
            </form>
         )
     }
 }
 
-export default injectStripe(Form);
+function mapStateToProps(state){
+    return{
+        cart: state.cart,
+    }
+}
+
+// export default connect(injectStripe(mapStateToProps, {addToOrder})) (Form);

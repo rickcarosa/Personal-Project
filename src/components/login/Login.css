@@ -3,6 +3,12 @@
     height: 100%;
 } */
 
+
+.login_container{
+    position: absolute;
+    margin: 20% 35%;
+}
+
 .main_title{
     text-align: center;
     font-size: 60px;
@@ -15,15 +21,13 @@
     margin: auto;
     padding: 10px 20px;
     margin-top: 20px;
-    font-size: 18px;
-    background-color: #233237;
-    color: #eac67a;
+    font-size: 20px;
+    background-color: #eac67a;
+    color: #984b43;
     
 }
 
 .sign_in:hover{
-    background-color: #eac67a;
-    color: #984b43;
     cursor: pointer;
 }
 

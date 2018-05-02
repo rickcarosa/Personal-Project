@@ -4,8 +4,7 @@ import './Login.css';
 import Particles from 'react-particles-js';
 
 class Login extends Component{
-    
-    
+        
     // componentDidMount(){
     //     const particlesJS = window.particlesJS
     //     particlesJS.load('particles-js', 'particles.json', function(){
@@ -15,22 +14,30 @@ class Login extends Component{
 
     render(){
 
-        
-
     return(
         
         <div className = 'login'> 
                 {/* <script src = "https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"> </script> */}
+                <div className='login_container'>
+                    <div className = 'main_title'> ShowMania </div>
+                        <a href = {process.env.REACT_APP_LOGIN} > 
+                        <button className = 'sign_in'> Login </button>
+                        </a> 
+                </div>
                 
                 <Particles className = 'particles_js'
                         params = {{
                             particles:{
                                 number:{
-                                    value: 80
+                                    value: 100
                                 },
                                 line_linked:{
                                     color: '#eac67a',
-                                    opacity: .2
+                                    opacity: .35,
+                                    width: 1
+                                },
+                                move:{
+                                    speed: 5
                                 }
                             },
                             
@@ -47,7 +54,7 @@ class Login extends Component{
                             },
                             modes:{
                                 repulse:{
-                                    distance: 100
+                                    distance: 80
                                 }
                             }
                         }
@@ -55,14 +62,13 @@ class Login extends Component{
                         style = {{
                             width: '100%',
                             background: '#233237',
-                            height: '100vh'
+                            height: '120vh',
+                            position: 'absolute',
+                            backgroundSize: 'cover',
+                            zIndex: '-1',
+                            
                         }}
                 />
-
-                        <div className = 'main_title'> ShowMania </div>
-                            <a href = {process.env.REACT_APP_LOGIN} > 
-                                <button className = 'sign_in'> Login </button>
-                            </a> 
         </div>
     )
 }

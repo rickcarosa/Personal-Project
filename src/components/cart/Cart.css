@@ -46,6 +46,11 @@
     color: #233237
 }
 
+.card_details{
+    color: #233237;
+    margin-left: 50px;
+}
+
 .purchase:hover{
     background-color: #eac67a;
     color: #984B43;
