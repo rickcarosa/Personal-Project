@@ -48,3 +48,21 @@ a:hover{
         font-size: 8px;
     }
 }
+
+@media(max-width: 375px){
+    h2{
+        font-size: larger;
+    }
+
+    .footer_section{
+        padding-right: 0;
+        padding-bottom: 0;
+        margin-left: 9px;
+        margin-right: 9px;
+    }
+
+    .footer_links a{
+        text-align: center;
+        font-size: medium;
+    }
+}

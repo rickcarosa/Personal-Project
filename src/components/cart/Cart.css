@@ -32,15 +32,6 @@
     color: #233237;
 }
 
-.purchase{
-    cursor: pointer;
-    padding: 8px 20px;
-    background-color: #233237;
-    color: #eac67a;
-    font-size: 16px;
-    margin-left: 50px;
-}
-
 .total_price{
     margin-left: 50px;
     color: #233237
@@ -62,7 +53,12 @@
 
 .description{
     margin: 0 50px;
-    
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+}
+
+.show_price{
+    font-size: 24px;
+    color: #233237;
 }
 
 .delete{
@@ -85,5 +81,51 @@
 }
 
 
+@media(max-width: 375px){
+    .cart_container{
+        flex-direction: column;
+    }
+
+    .x_cart{
+        width: 35%;
+        height: 250px;
+        margin: auto;
+        margin-top: 30px;
+    }
+
+    .show_title{
+        font-size: 35px;
+    }
+
+    .description{
+        font-size: 18px;
+    }
+
+    .summary{
+        font-size: 25px;
+    }
+
+    .show_price{
+        font-size: 25px;
+    }
+
+    .delete{
+        padding: 10px 30px;
+    }
+
+    /* .StripeCheckout{
+        background-color: #233237;
+        background: none;
+        box-shadow: #233237 0px 1px 0px;
+    } */
+    
+    .total_price{
+        margin-left: 35%;
+    }
+
+    .card_details{
+        margin-left: 36%;
+    }
+}
 
 

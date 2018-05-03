@@ -3,13 +3,13 @@ import Nav from '../nav/Nav';
 import Footer from '../footer/Footer';
 import './Order.css';
 import {connect} from 'react-redux';
-import {getOrder} from '../../ducks/reducer';
+import {getOrder, addToOrder} from '../../ducks/reducer';
 
 class Order extends Component{
 
-    componentDidMount(){
-        this.props.getOrder()
-    }
+    // componentDidMount(){
+    //     this.props.getOrder()
+    // } needs to render after button is clicked 
 
     render(){
 
@@ -30,6 +30,7 @@ class Order extends Component{
         return(
             <div className = 'Order'>
                 <Nav/>
+                <button className = 'add_order' onClick = {() => this.props.addToOrder()}> Get Your Order! </button>
                 <div className = 'neworder'> {newOrder} </div>
                 <Footer/>
             </div>
@@ -43,4 +44,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps, {getOrder} ) (Order);
+export default connect(mapStateToProps, {getOrder, addToOrder} ) (Order);

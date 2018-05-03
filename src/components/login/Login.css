@@ -1,12 +1,13 @@
-/* .particles_js{
-    background: #233237;
-    height: 100%;
-} */
-
 
 .login_container{
     position: absolute;
-    margin: 20% 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+
 }
 
 .main_title{
@@ -30,5 +31,8 @@
 .sign_in:hover{
     cursor: pointer;
 }
+
+
+
 
 

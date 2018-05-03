@@ -52,3 +52,27 @@
 .info{
     text-align: center;
 }
+
+@media(max-width: 375px){
+    .x{
+        width: 35%;
+    }
+
+    .data{
+        font-size: 20px;
+    }
+
+    .add{
+        padding: 12px 25px;
+        font-size: 16px;
+        margin-bottom: 45px;
+    }
+
+    .search{
+        font-size: 18px;
+    }
+
+    .find_shows{
+        padding: 8px 20px;
+    }
+}

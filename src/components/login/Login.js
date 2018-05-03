@@ -29,15 +29,24 @@ class Login extends Component{
                         params = {{
                             particles:{
                                 number:{
-                                    value: 100
+                                    value: 60
                                 },
                                 line_linked:{
                                     color: '#eac67a',
-                                    opacity: .35,
-                                    width: 1
+                                    opacity: .8,
+                                    width: 2,
+                                    distance: 80
                                 },
                                 move:{
-                                    speed: 5
+                                    speed: 5,
+                                    bounce: true
+                                },
+                                shape:{
+                                    type: 'star',
+                                    stroke: {
+                                        width: 8,
+                                        color: '#984b43'
+                                    }
                                 }
                             },
                             
@@ -62,8 +71,8 @@ class Login extends Component{
                         style = {{
                             width: '100%',
                             background: '#233237',
-                            height: '120vh',
-                            position: 'absolute',
+                            height: '100%',
+                            position: 'fixed',
                             backgroundSize: 'cover',
                             zIndex: '-1',
                             

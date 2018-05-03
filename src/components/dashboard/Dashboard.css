@@ -16,7 +16,7 @@
 }
 
 .poster:hover{
-    opacity: 0.8
+    opacity: 0.8;
 }
 
 
@@ -24,7 +24,7 @@
     animation: opacity 1s ease forwards;
     opacity: .3;
     cursor: pointer;
-  }
+}
 
 .poster>div{
     height: 65%;
@@ -33,7 +33,7 @@
     margin-top: 78px;
     font-size: 30px;
     color: #fffb00;
-  }
+}
 
 .container{
     display: flex;
@@ -58,3 +58,24 @@ h1{
       opacity:1;
     }
   }
+
+@media(max-width: 375px){
+    .show_button{
+        margin-top: 22px;
+        margin-right: 30px;
+        font-size: 14px;
+    }
+
+    h1{
+        font-size: 28px;
+        margin-left: 30px;
+    }
+
+    .show_container{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width: 750px){
+    
+}

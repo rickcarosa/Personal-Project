@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {injectStripe} from 'react-stripe-elements';
+import './Form.css';
 import Card from './Card';
 import axios from 'axios';
 import {connect} from 'react-redux';
@@ -18,7 +19,7 @@ class Form extends Component{
         this.props.stripe.createToken({name: 'Jenny Rosen'}).then(({token}) => {
             console.log('Received Stripe token:', token)
             axios.post('/api/charge', {token, amount: this.props.total}).then(res => {
-                console.log("woopiieeee")
+                alert("Your purchase has been made!") 
             }).catch( err => console.log(err))          
         });
     }
@@ -34,8 +35,8 @@ class Form extends Component{
                 stripeKey = {process.env.REACT_APP_STRIPE_KEY}
                 amount = {this.props.amount}/>
                 <br/>
-                <button className = 'purchase'> Purchase! </button>
-                {/* <button className = 'purchase'   onClick = {() => this.props.addToOrder()}> Purchase! </button> */}
+                <button type = 'submit' className = 'purchase'> Purchase! </button>
+                
            </form>
         )
     }

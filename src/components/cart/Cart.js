@@ -4,7 +4,7 @@ import './Cart.css';
 import Footer from '../footer/Footer';
 import Checkout from '../checkout/Checkout';
 import {connect} from 'react-redux';
-import {getCart, deleteShow, addToOrder} from '../../ducks/reducer';
+import {getCart, deleteShow} from '../../ducks/reducer';
 import Stripe from '../stripe/Stripe';
 
 class Cart extends Component{
@@ -24,6 +24,7 @@ class Cart extends Component{
                 return(
                     <div className = 'cart_container' key = {e.id}>
                         <img className = 'x_cart' src = {e.image_cart} alt = 'show_image'/>
+                        
                         <div className = 'cart_container_two'>
                             <div className = "show_title"> {e.show_title} </div>
                             <br/>
@@ -33,6 +34,7 @@ class Cart extends Component{
                                 <br/>
                                 <button className = 'delete' onClick = { () => this.props.deleteShow(e.id)}> Remove </button>
                             </div>
+                        
                         </div>
                     </div>
                    
@@ -75,6 +77,6 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps, {getCart, deleteShow, addToOrder}) (Cart);
+export default connect(mapStateToProps, {getCart, deleteShow}) (Cart);
 
 

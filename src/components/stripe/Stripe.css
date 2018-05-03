@@ -7,10 +7,27 @@
     box-shadow: 0 1px 3px 0 #233237;
     -webkit-transition: box-shadow 150ms ease;
     transition: box-shadow 150ms ease;
-    width: 60%;
+    width: 50%;
     margin-left: 50px;
   }
 
   .StripeElement--invalid {
     border-color: #fa755a;
   }
+
+@media(max-width: 375px){
+    .StripeElement{
+        margin: auto;
+        width: 85%;
+        border: 2px solid;
+  }
+
+  .ElementsApp .InputElement{
+    font-size: 24px;
+  }
+
+  .purchase{
+    margin-left: 33%;
+  }
+
+}
