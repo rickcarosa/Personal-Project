@@ -65,8 +65,9 @@ export function getOrder(){
     }
 }
 
-export function addToOrder(show_title, show_price, time, totalPrice){
-    let addOrder = axios.post('/api/order', {show_title, show_price, time, totalPrice}).then( res => {
+export function addToOrder(show_title, show_price, totalPrice){
+    console.log(show_title, show_price, totalPrice)
+    let addOrder = axios.post('/api/order', {show_title, show_price, totalPrice}).then( res => {
         return res.data;
     })
     return{
@@ -80,7 +81,7 @@ export default function reducer(state = initialState, action){
         case GET_USER_INFO + '_FULFILLED':
             return Object.assign( {}, state, {user: action.payload})
         case GET_CART + '_FULFILLED':
-        console.log(action.payload)
+        // console.log(action.payload)
             return Object.assign( {}, state, {cart: [...action.payload]})
         case ADD_TO_CART + '_FULFILLED':
             return Object.assign( {}, state, {cart: [...action.payload]})

@@ -1,5 +1,5 @@
 import React from 'react';
-import {CardElement, CardNumberElement} from 'react-stripe-elements';
+import {CardElement, /* CardNumberElement */} from 'react-stripe-elements';
 
  
 class Card extends React.Component {

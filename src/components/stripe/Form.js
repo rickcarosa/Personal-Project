@@ -3,16 +3,15 @@ import {injectStripe} from 'react-stripe-elements';
 import './Form.css';
 import Card from './Card';
 import axios from 'axios';
-import {connect} from 'react-redux';
-import {addToOrder} from '../../ducks/reducer';
+
 
 class Form extends Component{
-    constructor(props) {
-        super(props);
-        // this.state = {
-        //     amount: 100
-        // }
-    }
+    // constructor(props) {
+    //     super(props);
+    //     // this.state = {
+    //     //     amount: 100
+    //     // }
+    // }
 
     onSubmit(e){
         e.preventDefault();
@@ -42,10 +41,5 @@ class Form extends Component{
     }
 }
 
-function mapStateToProps(state){
-    return{
-        cart: state.cart,
-    }
-}
 
 export default injectStripe (Form);
