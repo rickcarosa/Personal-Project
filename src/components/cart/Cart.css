@@ -113,11 +113,11 @@
         padding: 10px 30px;
     }
 
-    /* .StripeCheckout{
+    Checkout{
         background-color: #233237;
         background: none;
         box-shadow: #233237 0px 1px 0px;
-    } */
+    }
     
     .total_price{
         margin-left: 35%;

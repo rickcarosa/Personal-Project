@@ -13,8 +13,18 @@ class Cart extends Component{
         this.props.getCart()
     }
 
+    removeTags(e){
+        var newDescription = e.replace('<p>', '')
+        newDescription = newDescription.replace('</p>', '')
+        newDescription = newDescription.replace('<b>', '')
+        newDescription = newDescription.replace('</b>', '')
+        newDescription = newDescription.replace('<i>', '')
+        newDescription = newDescription.replace('</i>', '')
+        return newDescription
+    }
+
     render(){
-        console.log(this.props)
+        console.log(this.props.cart)
       
         let newCart = null
         let totalPrice = null
@@ -28,7 +38,7 @@ class Cart extends Component{
                         <div className = 'cart_container_two'>
                             <div className = "show_title"> {e.show_title} </div>
                             <br/>
-                            <div className = 'description'> <div className = 'summary'> Summary: </div> <br/> {e.description} </div>
+                            <div className = 'description'> <div className = 'summary'> Summary: </div> <br/>  {this.removeTags(e.description)} </div>
                             <div className = 'cart_container_three' >
                                 <div className = "show_price"> ${e.price}.00 </div>
                                 <br/>
@@ -43,6 +53,8 @@ class Cart extends Component{
             totalPrice = this.props.cart.reduce((acc, curr) => {
                 return acc + curr.price
             }, 0)
+
+            
         }
             console.log(totalPrice)
         

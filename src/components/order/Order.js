@@ -4,6 +4,7 @@ import Footer from '../footer/Footer';
 import './Order.css';
 import {connect} from 'react-redux';
 import {getOrder, addToOrder, getCart} from '../../ducks/reducer';
+import _ from 'lodash';
 
 class Order extends Component{
 
@@ -13,12 +14,15 @@ class Order extends Component{
     }
 
 
-    render(){
+    render(){        
         
-        console.log(this.props.cart)
         let newOrder = null
+        let finalOrder = []
+         newOrder = _.uniqBy(this.props.order, 'show_title')
+         console.log(newOrder, 'newOrder')
         if(this.props.order.length > 0){
-            newOrder = this.props.order.map( (e, i) => {
+            console.log(this.props.order)
+            finalOrder = newOrder.map( (e, i) => {
                 return(
                     <div key = {i}>
                         {e.show_title}
@@ -34,13 +38,14 @@ class Order extends Component{
             return acc + curr.price
         }, 0)
 
+
         return(
             <div className = 'Order'>
                 <Nav/>
                 
                 <button className = 'add_order' onClick = {() => this.props.addToOrder(this.props.cart[0].show_title, this.props.cart[0].price, orderTotal )}> Get Your Order! </button>
         
-                <div className = 'neworder'> {newOrder} </div>
+                <div className = 'neworder'> {finalOrder} </div>
                 <Footer/>
             </div>
         )
