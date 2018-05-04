@@ -9,10 +9,17 @@ import _ from 'lodash';
 class Order extends Component{
 
 
-    componentDidMount(){
-        this.props.getCart()
-    }
+    // componentDidMount(){
+    //     this.props.getCart()
+    // }
 
+    loopOrders(orderTotal){
+        console.log(orderTotal, 'orderTotal')
+        for(var i = 0; i < this.props.cart.length; i++){
+            this.props.addToOrder(this.props.cart[i].show_title, this.props.cart[i].price, orderTotal)
+            console.log(this.props.cart[i])
+        }
+    }
 
     render(){        
         
@@ -28,7 +35,7 @@ class Order extends Component{
                         {e.show_title}
                         {e.price}
                         {e.order_ts}
-                        {e.total_price}
+                        
                     </div>
                 )
             })
@@ -43,9 +50,12 @@ class Order extends Component{
             <div className = 'Order'>
                 <Nav/>
                 
-                <button className = 'add_order' onClick = {() => this.props.addToOrder(this.props.cart[0].show_title, this.props.cart[0].price, orderTotal )}> Get Your Order! </button>
+                <button className = 'add_order' onClick = {() => this.loopOrders( orderTotal )}> Get Your Order! </button>
         
-                <div className = 'neworder'> {finalOrder} </div>
+                <div className = 'neworder'> {finalOrder}  
+                <div className = 'orderTotal'> {orderTotal} </div> 
+                </div>
+                
                 <Footer/>
             </div>
         )

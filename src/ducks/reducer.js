@@ -88,10 +88,10 @@ export default function reducer(state = initialState, action){
         case DELETE_FROM_CART + '_FULFILLED':
             return Object.assign( {}, state, {cart: action.payload})
         case GET_ORDER + '_FULFILLED':
-        console.log(action.payload, 'what')
+        // console.log(action.payload, 'what')
             return Object.assign( {}, state, {order: [...action.payload]})
         case ADD_TO_ORDER + '_FULFILLED':
-        console.log(action.payload, 'booooooooo')
+        // console.log(action.payload, 'booooooooo')
             return Object.assign( {}, state, {order: [...action.payload]})
         default:
             return state;
