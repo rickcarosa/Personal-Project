@@ -66,7 +66,6 @@ class Cart extends Component{
              <Checkout 
             total = {totalPrice * 100}/>
 
-
             <div className = 'containter_buy'>
                 <p className = 'total_price'> Total: ${totalPrice}.00 </p>
                 <p className = 'card_details'> Card Details:</p>
@@ -74,9 +73,7 @@ class Cart extends Component{
             total = {totalPrice * 100} 
             />
             <br/>
-                
             </div>
-
             <Footer/>
         </div>
     )

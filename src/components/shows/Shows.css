@@ -42,11 +42,12 @@
 }
 
 .add{
-    padding: 8px 8px 5px 8px;
+    padding: 12px 16px 12px 16px;
     margin-bottom: 20px;
     background-color: #233237;
     color: #eac67a;
     cursor: pointer;
+    font-size: 14px;
 }
 
 .info{

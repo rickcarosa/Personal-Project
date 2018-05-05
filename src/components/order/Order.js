@@ -9,9 +9,10 @@ import _ from 'lodash';
 class Order extends Component{
 
 
-    // componentDidMount(){
-    //     this.props.getCart()
-    // }
+    componentDidMount(){
+        this.props.getCart()
+        
+    }
 
     loopOrders(orderTotal){
         console.log(orderTotal, 'orderTotal')

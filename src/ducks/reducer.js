@@ -65,9 +65,9 @@ export function getOrder(){
     }
 }
 
-export function addToOrder(show_title, show_price, totalPrice){
+export function addToOrder(show_title, show_price, totalPrice, time){
     console.log(show_title, show_price, totalPrice)
-    let addOrder = axios.post('/api/order', {show_title, show_price, totalPrice}).then( res => {
+    let addOrder = axios.post('/api/order', {show_title, show_price, totalPrice, time}).then( res => {
         return res.data;
     })
     return{

@@ -75,7 +75,6 @@ class Login extends Component{
                             position: 'fixed',
                             backgroundSize: 'cover',
                             zIndex: '-1',
-                            
                         }}
                 />
         </div>

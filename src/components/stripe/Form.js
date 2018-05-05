@@ -15,9 +15,10 @@ class Form extends Component{
 
     onSubmit(e){
         e.preventDefault();
-        this.props.stripe.createToken({name: 'Jenny Rosen'}).then(({token}) => {
+        this.props.stripe.createToken({name: 'Ricky Bobby'}).then(({token}) => {
             console.log('Received Stripe token:', token)
             axios.post('/api/charge', {token, amount: this.props.total}).then(res => {
+
                 alert("Your purchase has been made!") 
             }).catch( err => console.log(err))          
         });

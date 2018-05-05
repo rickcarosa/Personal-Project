@@ -34,10 +34,10 @@ module.exports = {
     },
 
     createOrder: (req, res) => {
-        const {totalPrice, show_title, show_price} = req.body
+        const {totalPrice, show_title, show_price, order_ts} = req.body
         console.log(req.body)
         const db = req.app.get('db')
-        db.create_order([req.user.id, totalPrice]).then( order => {
+        db.create_order([req.user.id, totalPrice, order_ts]).then( order => {
             console.log(order)
                 db.create_order_item([order[0].id, show_title, show_price]).then( order => {
                     console.log('final order', order)
