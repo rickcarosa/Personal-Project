@@ -1,5 +1,7 @@
 .get_shows_parent{
     position: relative;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #233237;
 }
 
 .x{

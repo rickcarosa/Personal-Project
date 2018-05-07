@@ -54,7 +54,7 @@ class Shows extends Component{
             <div className = 'get_shows_parent'>
                 <Nav/>
                 <div className = 'get_shows'>
-                    <input className = 'search' placeholder = 'Search' onChange = {(event) => {this.addShows(event.target.value)}} /> 
+                    <input className = 'search' placeholder = 'Search Shows' onChange = {(event) => {this.addShows(event.target.value)}} /> 
                     <button className = 'find_shows' onClick = {() => this.updateShows()}> Find Shows! </button>
                 </div>
                 <div className = 'showlist'> {showList} </div>

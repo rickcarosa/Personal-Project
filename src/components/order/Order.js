@@ -7,20 +7,33 @@ import {getOrder, addToOrder, getCart} from '../../ducks/reducer';
 import _ from 'lodash';
 
 class Order extends Component{
-
+    // constructor(){
+    //     super()
+    //     this.state = {
+    //         total_price: false
+    //     }
+    // }
 
     componentDidMount(){
+        alert("Your purchase has been made!")
         this.props.getCart()
-        
+        this.props.getOrder()
     }
 
-    loopOrders(orderTotal){
-        console.log(orderTotal, 'orderTotal')
-        for(var i = 0; i < this.props.cart.length; i++){
-            this.props.addToOrder(this.props.cart[i].show_title, this.props.cart[i].price, orderTotal)
-            console.log(this.props.cart[i])
-        }
-    }
+    // loopOrders(orderTotal){
+    //     console.log(orderTotal, 'orderTotal')
+    //     for(var i = 0; i < this.props.cart.length; i++){
+    //         this.props.addToOrder(this.props.cart[i].show_title, this.props.cart[i].price, orderTotal)
+    //         console.log(this.props.cart[i])
+    //     }
+    // }
+
+    // handleClick(){
+    //     this.setState({
+    //         total_price: !this.state.total_price
+    //     })
+    // }
+
 
     render(){        
         
@@ -32,10 +45,10 @@ class Order extends Component{
             console.log(this.props.order)
             finalOrder = newOrder.map( (e, i) => {
                 return(
-                    <div key = {i}>
-                        {e.show_title}
-                        {e.price}
-                        {e.order_ts}
+                    <div className = 'orderInfo' key = {i}>
+                        <div className = 'order_show_title'> {e.show_title} </div>
+                        <div className = 'order_show_price'> ${e.price}.00 </div>
+                        <div className = 'order_time'> {e.order_ts} </div>
                         
                     </div>
                 )
@@ -51,10 +64,11 @@ class Order extends Component{
             <div className = 'Order'>
                 <Nav/>
                 
-                <button className = 'add_order' onClick = {() => this.loopOrders( orderTotal )}> Get Your Order! </button>
+                {/* <button className = 'add_order' onClick = {() => { this.loopOrders( orderTotal ); this.handleClick()}}> Get Your Order! </button> */}
         
-                <div className = 'neworder'> {finalOrder}  
-                <div className = 'orderTotal'> {orderTotal} </div> 
+                <div className = 'newOrder'> {finalOrder}  
+                {/* { this.state.total_price && <div className = 'orderInfo'> Order Total: ${orderTotal}.00 </div> } */}
+                <div className = 'orderInfo'> Order Total: ${orderTotal}.00 </div>
                 </div>
                 
                 <Footer/>

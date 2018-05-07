@@ -9,9 +9,10 @@ const initialState = {
 const GET_USER_INFO = "GET_USER_INFO"
 const GET_CART = "GET_CART"
 const ADD_TO_CART = "ADD_TO_CART"
-const DELETE_FROM_CART = "DELETE_FROM_CART"
+const DELETE_SHOW_FROM_CART = "DELETE_SHOW_FROM_CART"
 const GET_ORDER = "GET_ORDER"
 const ADD_TO_ORDER = "ADD_TO_ORDER"
+const DELETE_ORDER = "DELETE_ORDER"
 
 export function getUser(){
     let userData = axios.get('/auth/me').then( res => {
@@ -50,7 +51,7 @@ export function deleteShow(id){
         return res.data;
     })
     return{
-        type: DELETE_FROM_CART,
+        type: DELETE_SHOW_FROM_CART,
         payload: deleteShow
     }
 }
@@ -76,6 +77,16 @@ export function addToOrder(show_title, show_price, totalPrice, time){
     }
 }
 
+// export function deleteOrder(id){
+//     let deleteOrder = axios.delete(`/api/order/${id}`).then( res => {
+//         return res.data;
+//     })
+//     return{
+//         type: DELETE_ORDER,
+//         payload: deleteOrder
+//     }
+// }
+
 export default function reducer(state = initialState, action){
     switch(action.type){
         case GET_USER_INFO + '_FULFILLED':
@@ -85,7 +96,7 @@ export default function reducer(state = initialState, action){
             return Object.assign( {}, state, {cart: [...action.payload]})
         case ADD_TO_CART + '_FULFILLED':
             return Object.assign( {}, state, {cart: [...action.payload]})
-        case DELETE_FROM_CART + '_FULFILLED':
+        case DELETE_SHOW_FROM_CART + '_FULFILLED':
             return Object.assign( {}, state, {cart: action.payload})
         case GET_ORDER + '_FULFILLED':
         // console.log(action.payload, 'what')
@@ -93,6 +104,8 @@ export default function reducer(state = initialState, action){
         case ADD_TO_ORDER + '_FULFILLED':
         // console.log(action.payload, 'booooooooo')
             return Object.assign( {}, state, {order: [...action.payload]})
+        case DELETE_ORDER + '_FULFILLED':
+            return Object.assign( {}, state, {order: action.payload})
         default:
             return state;
     }

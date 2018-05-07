@@ -98,7 +98,8 @@ app.get('/api/cart', controller.cart)
 app.get('/api/order', controller.order)
 app.post('/api/order', controller.createOrder)
 app.put('/api/show', controller.createCart)
-app.delete('/api/show/:id', controller.delete)
+app.delete('/api/show/:id', controller.deleteShow)
+// app.delete('/api/order/:id', controller.deleteOrder)
 
 app.post('/api/charge', function(req, res){
     const db = app.get('db')

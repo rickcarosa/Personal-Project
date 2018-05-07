@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import './Nav.css';
-// import menu_icon from './menu_icon.png';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+// import {deleteOrder} from '../../ducks/reducer';
+
 
 
 class Nav extends Component{
@@ -21,7 +23,7 @@ class Nav extends Component{
                             <Link to = '/shows'> <li> Shows </li> </Link>
                             <Link to = '/cart'> <li> Cart </li> </Link>
                             <Link to = '/order'> <li> Order </li> </Link>
-                            <a href = 'http://localhost:3005/logout'> <li> Logout </li> </a>
+                            <a href = 'http://localhost:3005/logout'> <li /*onClick = {() => this.props.deleteOrder(this.props.order.id)} */ > Logout </li> </a>
                         </ul>
                     </nav>
                 
@@ -43,4 +45,10 @@ class Nav extends Component{
     }
 }
 
-export default Nav;
+function mapStateToProps(state){
+    return{
+        order: state.order
+    }
+}
+
+export default connect(mapStateToProps) (Nav);

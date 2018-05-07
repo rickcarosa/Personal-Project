@@ -49,7 +49,7 @@ module.exports = {
                 })
     },
 
-    delete: (req, res) => {
+    deleteShow: (req, res) => {
         let id = req.params.id
         // console.log(req.params.id)
         let db = req.app.get('db')
@@ -57,7 +57,15 @@ module.exports = {
             // console.log(cart)
             res.status(200).send(cart)
         }).catch(console.log)
-    }
+    },
+
+    // deleteOrder: (req, res) => {
+    //     let id = req.params.id
+    //     let db = req.app.get('db')
+    //     db.delete_order([id, req.user.id]).then( (order) => {
+    //         res.sendStatus(200)
+    //     }).catch(console.log)
+    // }
 
     
 }
