@@ -13,6 +13,7 @@ module.exports = {
 
     order: (req, res) => {              
         const {id} = req.user
+        // const {limit} = req.user.params
         const db = req.app.get('db')
         db.get_order([id]).then( order => {
             console.log(order, 'order');
@@ -35,18 +36,24 @@ module.exports = {
 
     createOrder: (req, res) => {
         const {totalPrice, show_title, show_price, order_ts} = req.body
-        console.log(req.body)
         const db = req.app.get('db')
         db.create_order([req.user.id, totalPrice, order_ts]).then( order => {
-            console.log(order)
-                db.create_order_item([order[0].id, show_title, show_price]).then( order => {
-                    console.log('final order', order)
-                    db.get_order([req.user.id]).then(order=>{
-                        console.log('final final order', order)
+            // console.log(order)
+            let stack = []
+            show_title.forEach((show, index) => {
+                stack.push(db.create_order_item([order[0].id, show_title[index], show_price[index]]))
+                console.log('order id', order[0].id, show_title[index], show_price[index] )
+            })
+            Promise.all(stack).then( responses => {
+                db.get_latest_order([order[0].id]).then(order=>{
+                    console.log('final final order', order)
+                    db.delete_cart([req.user.id]).then( resp => {
+                        console.log('delete')
                         res.status(200).send(order)
-                            }).catch(console.log)
-                    })
-                })
+                        })
+                    }).catch(console.log)
+                }) 
+            })
     },
 
     deleteShow: (req, res) => {

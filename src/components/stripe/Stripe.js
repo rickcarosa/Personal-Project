@@ -10,7 +10,9 @@ class Stripe extends Component{
         return(
             <div>
                 <Elements>
-                    <Form/>
+                    <Form
+                    // purchase = {this.props.purchase}
+                    />
                 </Elements>
                 
             </div>

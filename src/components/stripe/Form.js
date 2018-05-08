@@ -21,7 +21,9 @@ class Form extends Component{
                 //         console.log(this.props.cart[i])
                 //     }
                 // }
-                 
+
+                // this.props.purchase()
+                alert("Your purchase has been made!") 
             }).catch( err => console.log(err))          
         });
     }
@@ -37,7 +39,7 @@ class Form extends Component{
                 stripeKey = {process.env.REACT_APP_STRIPE_KEY}
                 amount = {this.props.amount}/>
                 <br/>
-                <Link to = '/order'> <button type = 'submit' className = 'purchase'> Purchase! </button> </Link>
+                <button type = 'submit' className = 'purchase'> Purchase! </button>
                 
            </form>
         )
