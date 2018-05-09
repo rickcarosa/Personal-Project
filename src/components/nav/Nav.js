@@ -4,8 +4,6 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 
-
-
 class Nav extends Component{
 
 
@@ -14,6 +12,8 @@ class Nav extends Component{
         }
 
         render(){
+
+
         return(
             <header className = 'Navbar'>
                 <Link to = '/dashboard'> <div className = "title"> ShowMania </div> </Link>
@@ -25,6 +25,7 @@ class Nav extends Component{
                             <Link to = '/order'> <li> Order </li> </Link>
                             <a href = 'http://localhost:3005/logout'> <li> Logout </li> </a>
                         </ul>
+                        
                     </nav>
                 
                     <div className = "dropdown">

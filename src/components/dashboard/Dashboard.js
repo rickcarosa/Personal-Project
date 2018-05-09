@@ -6,7 +6,7 @@ import './Dashboard.css';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {getUser, addToCart} from '../../ducks/reducer';
-
+import _ from 'lodash'
 
 class Dashboard extends Component{
     constructor(){
@@ -33,7 +33,7 @@ class Dashboard extends Component{
 
     render(){
 
-        
+       let name = _.split(this.props.user.display_name, ' ', 1)
 
         var popularShows = this.state.popular.map( (e, i) => {
             let price = e.vote_average * 10
@@ -66,7 +66,7 @@ class Dashboard extends Component{
             <div> 
                 <Nav/>
                 <div className = 'container'>
-                    <h1> See Whats Trending </h1>
+                    <h1> Hi {name}, See Whats Trending </h1>
                     <Link to = '/shows'> <button className = 'show_button'> Search for Shows! </button> </Link>
                 </div>
                 <div className='show_container'>

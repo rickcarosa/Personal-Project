@@ -29,7 +29,7 @@ class Login extends Component{
                         params = {{
                             particles:{
                                 number:{
-                                    value: 60
+                                    value: 80
                                 },
                                 line_linked:{
                                     color: '#eac67a',
