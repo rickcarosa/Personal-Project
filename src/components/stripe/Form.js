@@ -3,7 +3,8 @@ import {injectStripe} from 'react-stripe-elements';
 import './Form.css';
 import Card from './Card';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
+import {withRouter} from 'react-router-dom'; // need withRouter because this component isn't rendered in app.js routes
+
 
 
 class Form extends Component{
@@ -14,16 +15,8 @@ class Form extends Component{
         this.props.stripe.createToken({name: 'Ricky Bobby'}).then(({token}) => {
             console.log('Received Stripe token:', token)
             axios.post('/api/charge', {token, amount: this.props.total}).then(res => {
-                // function loopOrders(orderTotal){
-                //     console.log(orderTotal, 'orderTotal')
-                //     for(var i = 0; i < this.props.cart.length; i++){
-                //         this.props.addToOrder(this.props.cart[i].show_title, this.props.cart[i].price, orderTotal)
-                //         console.log(this.props.cart[i])
-                //     }
-                // }
-
-                // this.props.purchase()
-                alert("Your purchase has been made!") 
+                alert("Your purchase has been made!");
+                this.props.history.push('/order')
             }).catch( err => console.log(err))          
         });
     }
@@ -39,7 +32,7 @@ class Form extends Component{
                 stripeKey = {process.env.REACT_APP_STRIPE_KEY}
                 amount = {this.props.amount}/>
                 <br/>
-                <button type = 'submit' className = 'purchase'> Purchase! </button>
+                <button type = 'submit' className = 'purchase'> Purchase! </button> 
                 
            </form>
         )
@@ -47,4 +40,4 @@ class Form extends Component{
 }
 
 
-export default injectStripe (Form);
+export default withRouter(injectStripe (Form));

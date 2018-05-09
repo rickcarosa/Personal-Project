@@ -1,20 +1,14 @@
 import React, {Component} from 'react';
 import Nav from '../nav/Nav';
-import axios from 'axios';
 import './Cart.css';
 import Footer from '../footer/Footer';
-import Checkout from '../checkout/Checkout';
+// import Checkout from '../checkout/Checkout';
 import {connect} from 'react-redux';
 import {getCart, deleteShow} from '../../ducks/reducer';
 import Stripe from '../stripe/Stripe';
 
 class Cart extends Component{
-    // constructor(){
-    //     super()
-
-
-    //     this.purchase = this.purchase.bind(this)
-    // }
+   
     componentDidMount(){
         this.props.getCart()
     }
@@ -28,22 +22,6 @@ class Cart extends Component{
         newDescription = newDescription.replace('</i>', '')
         return newDescription
     }
-
-    // purchase(){
-    //     var showTitles = [];
-    //     var prices = [];
-    //         for(var i = 0; i < this.props.cart.length; i++){
-    //             showTitles.push(this.props.cart[i].show_title)
-    //             prices.push(this.props.cart[i].price)
-    //         }
-    //         let totalPrice = this.props.cart.reduce((acc, curr) => {
-    //             return acc + curr.price
-    //         }, 0)
-    //     axios.post('/api/order', {show_title: showTitles, show_price: prices, totalPrice}).then( order => {
-    //         console.log(order)
-    //         this.props.history.push('/order')
-    //     })
-    // }
 
     render(){
         console.log(this.props.cart)
@@ -85,15 +63,14 @@ class Cart extends Component{
             <Nav/>
             <div className = 'newcart'> {newCart}  </div>
         
-             <Checkout 
-            total = {totalPrice * 100}/>
+             {/* <Checkout 
+            total = {totalPrice * 100}/> */}
 
             <div className = 'containter_buy'>
                 <p className = 'total_price'> Total: ${totalPrice}.00 </p>
                 <p className = 'card_details'> Card Details:</p>
             <Stripe 
-            amount = {totalPrice * 100} 
-            // purchase = {this.purchase}
+            total = {totalPrice * 100} 
             />
             <br/>
             </div>

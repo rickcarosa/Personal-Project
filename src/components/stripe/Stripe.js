@@ -11,7 +11,7 @@ class Stripe extends Component{
             <div>
                 <Elements>
                     <Form
-                    // purchase = {this.props.purchase}
+                    total = {this.props.total}
                     />
                 </Elements>
                 

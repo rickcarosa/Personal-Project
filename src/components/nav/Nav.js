@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './Nav.css';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-// import {deleteOrder} from '../../ducks/reducer';
+
 
 
 
@@ -23,7 +23,7 @@ class Nav extends Component{
                             <Link to = '/shows'> <li> Shows </li> </Link>
                             <Link to = '/cart'> <li> Cart </li> </Link>
                             <Link to = '/order'> <li> Order </li> </Link>
-                            <a href = 'http://localhost:3005/logout'> <li /*onClick = {() => this.props.deleteOrder(this.props.order.id)} */ > Logout </li> </a>
+                            <a href = 'http://localhost:3005/logout'> <li> Logout </li> </a>
                         </ul>
                     </nav>
                 

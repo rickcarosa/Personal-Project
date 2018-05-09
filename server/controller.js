@@ -11,16 +11,16 @@ module.exports = {
             console.log(err)})
     },
 
-    order: (req, res) => {              
-        const {id} = req.user
-        // const {limit} = req.user.params
-        const db = req.app.get('db')
-        db.get_order([id]).then( order => {
-            console.log(order, 'order');
-            res.status(200).send(order)
-        }).catch((err) => {
-            console.log(err)})
-    },
+    // order: (req, res) => {              
+    //     const {id} = req.user
+    //     // const {limit} = req.user.params
+    //     const db = req.app.get('db')
+    //     db.get_order([id]).then( order => {
+    //         console.log(order, 'order');
+    //         res.status(200).send(order)
+    //     }).catch((err) => {
+    //         console.log(err)})
+    // },
     
     createCart: (req, res) => {
         // console.log(req.body)
@@ -64,15 +64,7 @@ module.exports = {
             // console.log(cart)
             res.status(200).send(cart)
         }).catch(console.log)
-    },
-
-    // deleteOrder: (req, res) => {
-    //     let id = req.params.id
-    //     let db = req.app.get('db')
-    //     db.delete_order([id, req.user.id]).then( (order) => {
-    //         res.sendStatus(200)
-    //     }).catch(console.log)
-    // }
+    }
 
     
 }

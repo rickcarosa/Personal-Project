@@ -95,15 +95,15 @@ app.get('/logout', function(req, res) {
 })
 
 app.get('/api/cart', controller.cart)
-app.get('/api/order/', controller.order)
+// app.get('/api/order', controller.order)
 app.post('/api/order', controller.createOrder)
 app.put('/api/show', controller.createCart)
 app.delete('/api/show/:id', controller.deleteShow)
-// app.delete('/api/order/:id', controller.deleteOrder)
+
 
 app.post('/api/charge', function(req, res){
     const db = app.get('db')
-    console.log(req.body.amount)
+    // console.log(req.body)
     const charge = stripe.charges.create({
         amount: req.body.amount,
         currency: 'usd',

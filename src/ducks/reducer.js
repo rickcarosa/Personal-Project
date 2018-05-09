@@ -10,7 +10,7 @@ const GET_USER_INFO = "GET_USER_INFO"
 const GET_CART = "GET_CART"
 const ADD_TO_CART = "ADD_TO_CART"
 const DELETE_SHOW_FROM_CART = "DELETE_SHOW_FROM_CART"
-const GET_ORDER = "GET_ORDER"
+// const GET_ORDER = "GET_ORDER"
 const ADD_TO_ORDER = "ADD_TO_ORDER"
 const DELETE_ORDER = "DELETE_ORDER"
 
@@ -56,15 +56,15 @@ export function deleteShow(id){
     }
 }
 
-export function getOrder(){
-    let userOrder = axios.get('/api/order').then( res => {
-        return res.data;
-    })
-    return{
-        type: GET_ORDER,
-        payload: userOrder
-    }
-}
+// export function getOrder(){
+//     let userOrder = axios.get('/api/order').then( res => {
+//         return res.data;
+//     })
+//     return{
+//         type: GET_ORDER,
+//         payload: userOrder
+//     }
+// }
 
 export function addToOrder(show_title, show_price, totalPrice, time){
     // console.log(show_title, show_price, totalPrice)
@@ -98,9 +98,9 @@ export default function reducer(state = initialState, action){
             return Object.assign( {}, state, {cart: [...action.payload]})
         case DELETE_SHOW_FROM_CART + '_FULFILLED':
             return Object.assign( {}, state, {cart: action.payload})
-        case GET_ORDER + '_FULFILLED':
-        // console.log(action.payload, 'what')
-            return Object.assign( {}, state, {order: [...action.payload]})
+        // case GET_ORDER + '_FULFILLED':
+        // // console.log(action.payload, 'what')
+        //     return Object.assign( {}, state, {order: [...action.payload]})
         case ADD_TO_ORDER + '_FULFILLED':
         // console.log(action.payload, 'booooooooo')
             return Object.assign( {}, state, {order: [...action.payload]})
