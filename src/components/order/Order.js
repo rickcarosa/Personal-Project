@@ -12,7 +12,8 @@ class Order extends Component{
         this.state = {
             total_price: false,
             button: false,
-            orderButton: true
+            orderButton: true,
+            title: false
         }
     }
 
@@ -46,6 +47,12 @@ class Order extends Component{
         })
     }
 
+    handleTitle(){
+        this.setState({
+            title: !this.state.title
+        })
+    }
+
     render(){        
         
         let newOrder = null
@@ -54,12 +61,14 @@ class Order extends Component{
         if(this.props.order.length > 0){
             console.log(this.props.order)
             finalOrder = newOrder.map( (e, i) => {
+                let time = new Date(e.order_ts.split('.')[0] + "-0000");  // use GMT-0000 if passing in just the date
+                // console.log(time);
                 return(
                     <div className = 'orderInfo' key = {i}>
                         
                         <div className = 'order_show_title'> {e.show_title} </div>
                         <div className = 'order_show_price'> ${e.price}.00 </div>
-                        <div className = 'order_time'> {e.order_ts} </div>
+                        <div className = 'order_time'> {`${time.getMonth()}/${time.getDate()}/${time.getFullYear()}`} </div>
                         
                     </div>
                 )
@@ -73,8 +82,9 @@ class Order extends Component{
         return(
             <div className = 'Order'>
                 <Nav/>
+                    { this.state.title && <div className = 'order_title'> Your Order! </div>}
                 <div className = 'background'>
-                 { this.state.orderButton && <button className = 'add_order' onClick = {() => { this.loopOrders( orderTotal ); this.handleClick(); this.handleButton(); this.handleOrderButton()}}> Get Your Order! </button>}
+                 { this.state.orderButton && <button className = 'add_order' onClick = {() => { this.loopOrders( orderTotal ); this.handleClick(); this.handleButton(); this.handleOrderButton(); this.handleTitle()}}> Get Your Order! </button>}
                     <div className = 'newOrder'> {finalOrder}  
                     { this.state.total_price && <div className = 'orderInfo'> Order Total: ${orderTotal}.00 </div> }
                     { this.state.button && <a href = 'http://localhost:3005/logout'> <button className = 'order_logout'> Logout </button> </a> }

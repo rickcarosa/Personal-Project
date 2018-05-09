@@ -11,6 +11,11 @@
     font-size: 15px;
 }
 
+.show_button:hover{
+    background-color: #eac67a;
+    color: #984B43;
+}
+
 .popular{
     display: flex;
     justify-content: space-around;
@@ -77,6 +82,3 @@ h1{
     }
 }
 
-@media(max-width: 750px){
-    
-}

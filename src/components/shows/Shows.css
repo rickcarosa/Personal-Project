@@ -5,7 +5,7 @@
 }
 
 .x{
-    width: 15%;
+    width: 18%;
     display: block;
     margin: auto;
     margin-bottom: 20px;
@@ -32,6 +32,11 @@
     cursor: pointer;
 }
 
+.find_shows:hover{
+    background-color: #eac67a;
+    color: #984b43;
+}
+
 .search{
     padding: 8px 10px;
     font-size: 14px;
@@ -50,6 +55,11 @@
     color: #eac67a;
     cursor: pointer;
     font-size: 14px;
+}
+
+.add:hover{
+    background-color: #eac67a;
+    color: #984b43;
 }
 
 .info{
