@@ -67,14 +67,15 @@ h1{
 
 @media(max-width: 375px){
     .show_button{
-        margin-top: 22px;
-        margin-right: 30px;
-        font-size: 14px;
+        margin-top: 15px;
+        margin-right: 16px;
+        font-size: 15px;
+        padding: 8px 30px;
     }
 
     h1{
         font-size: 28px;
-        margin-left: 30px;
+        margin-left: 10px;
     }
 
     .show_container{
