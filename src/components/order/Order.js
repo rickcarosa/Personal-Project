@@ -1,4 +1,3 @@
-require('dotenv').config();
 import React, {Component} from 'react';
 import Nav from '../nav/Nav';
 import Footer from '../footer/Footer';
@@ -6,6 +5,7 @@ import './Order.css';
 import {connect} from 'react-redux';
 import { addToOrder, getCart} from '../../ducks/reducer';
 import _ from 'lodash';
+
 
 class Order extends Component{
     constructor(){
@@ -89,7 +89,7 @@ class Order extends Component{
                  { this.state.orderButton && <button className = 'add_order' onClick = {() => { this.loopOrders( orderTotal ); this.handleClick(); this.handleButton(); this.handleOrderButton(); this.handleTitle()}}> Get Your Order! </button>}
                     <div className = 'newOrder'> {finalOrder}  
                     { this.state.total_price && <div className = 'orderInfo'> Order Total: ${orderTotal}.00 </div> }
-                    { this.state.button && <a href = {process.env.LOGOUT_REDIRECT}> <button className = 'order_logout'> Logout </button> </a> }
+                    { this.state.button && <a href = {process.env.REACT_APP_LOGOUT_REDIRECT}> <button className = 'order_logout'> Logout </button> </a> }
                     </div>
                 </div>
                 
