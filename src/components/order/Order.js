@@ -1,3 +1,4 @@
+require('dotenv').config();
 import React, {Component} from 'react';
 import Nav from '../nav/Nav';
 import Footer from '../footer/Footer';
@@ -61,8 +62,9 @@ class Order extends Component{
         if(this.props.order.length > 0){
             console.log(this.props.order)
             finalOrder = newOrder.map( (e, i) => {
-                let time = new Date(e.order_ts.split('.')[0] + "-0000");  // use GMT-0000 if passing in just the date
-                // console.log(time);
+                let time = new Date(e.order_ts.split('.')[0] + "+0600");  // use GMT-0000 if passing in just the date, +0600 because I am recieving time in database 6 hours ahead of UTC
+                console.log(time);
+                console.log(e.order_ts)
                 return(
                     <div className = 'orderInfo' key = {i}>
                         
@@ -87,7 +89,7 @@ class Order extends Component{
                  { this.state.orderButton && <button className = 'add_order' onClick = {() => { this.loopOrders( orderTotal ); this.handleClick(); this.handleButton(); this.handleOrderButton(); this.handleTitle()}}> Get Your Order! </button>}
                     <div className = 'newOrder'> {finalOrder}  
                     { this.state.total_price && <div className = 'orderInfo'> Order Total: ${orderTotal}.00 </div> }
-                    { this.state.button && <a href = 'http://localhost:3005/logout'> <button className = 'order_logout'> Logout </button> </a> }
+                    { this.state.button && <a href = {process.env.LOGOUT_REDIRECT}> <button className = 'order_logout'> Logout </button> </a> }
                     </div>
                 </div>
                 

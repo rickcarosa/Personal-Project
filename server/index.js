@@ -9,8 +9,10 @@ const express = require('express')
     , Auth0Strategy = require('passport-auth0')
     , massive = require('massive')
     , stripe = require('stripe')(process.env.S_STRIPE_KEY)
-    
+    , nodemailer = require('nodemailer');
 
+
+app.use(express.static(`${__dirname}/..build`))
 app.use(bodyParser.json());
 app.use(cors());
 
@@ -21,7 +23,9 @@ const{
     CLIENT_ID,
     CLIENT_SECRET,
     CALLBACK_URL,
-    CONNECTION_STRING
+    CONNECTION_STRING,
+    SUCCESS_REDIRECT,
+    FAILURE_REDIRECT,
 } = process.env
 
 massive(CONNECTION_STRING).then( db => {
@@ -75,8 +79,8 @@ passport.deserializeUser( (id, done) => {
 
 app.get('/auth', passport.authenticate('auth0'));
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: 'http://localhost:3000/#/dashboard',         
-    failureRedirect: 'http://localhost:3000'
+    successRedirect: SUCCESS_REDIRECT,         
+    failureRedirect: FAILURE_REDIRECT
 }))
 
 app.get('/auth/me', function(req, res) {            
@@ -91,16 +95,17 @@ app.get('/auth/me', function(req, res) {
 
 app.get('/logout', function(req, res) {
     req.logOut();
-    res.redirect('http://localhost:3000')
+    res.redirect(FAILURE_REDIRECT)
 })
 
+//AXIOS
 app.get('/api/cart', controller.cart)
 // app.get('/api/order', controller.order)
 app.post('/api/order', controller.createOrder)
 app.put('/api/show', controller.createCart)
 app.delete('/api/show/:id', controller.deleteShow)
 
-
+//STRIPE
 app.post('/api/charge', function(req, res){
     const db = app.get('db')
     // console.log(req.body)
@@ -112,6 +117,37 @@ app.post('/api/charge', function(req, res){
       })
       res.sendStatus(200) // clear out cart here
 })
+
+//NODEMAILER
+
+app.post('/send', function (req, res, next){
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: process.env.EMAIL_USERNAME,
+            pass: process.env.EMAIL_PASSWORD
+        }
+    })
+})
+    sendEmail: (req, res) => {
+        const {user_email, message} = req.body;
+
+        const mailOptions = {
+        from: process.env.EMAIL_USERNAME,
+        to: user_email,
+        subject: "Thanks for your purchase!",
+        text: message
+    }
+    transporter.sendMail(mailOptions, function(err,res){
+        if(err){
+        console.error('there was an error:', err)
+        }else{
+        res.status(200).send(res)
+        }
+    })
+}
+
+
 
 
 app.listen(3005, () => console.log('Nachos are ready, hot, hot, hot!'));

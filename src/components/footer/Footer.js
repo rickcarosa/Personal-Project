@@ -1,3 +1,4 @@
+require('dotenv').config();
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './Footer.css';
@@ -46,7 +47,7 @@ function Footer(){
                     <div className = 'footer_section_header'>
                         <h2> Leaving? </h2>
                             <div className = 'footer_links'>
-                                <a href = 'http://localhost:3005/logout'> <div> Logout </div> </a>
+                                <a href = {process.env.LOGOUT_REDIRECT}> <div> Logout </div> </a>
                             </div>
                     </div>
                 </div>
