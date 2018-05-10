@@ -12,7 +12,7 @@ const express = require('express')
     , nodemailer = require('nodemailer');
 
 
-app.use(express.static(`${__dirname}/..build`))
+app.use(express.static(`${__dirname}/../build`))
 app.use(bodyParser.json());
 app.use(cors());
 
