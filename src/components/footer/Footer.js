@@ -32,9 +32,15 @@ function Footer(){
                     </div>
                     
                     <div className = 'copyright'> ShowMania, Copyright &copy; 2018 </div>
-
                 </div>
-
+                <div className = 'footer_section'>
+                    <div className = 'footer_section_header'>
+                        <h2> Recommend </h2>
+                            <div className = 'footer_links'>
+                                <Link to = '/recommends'> <div> See Similar </div> </Link>
+                            </div>
+                    </div>
+                </div>
                 <div className = 'footer_section'>
                     <div className = 'footer_section_header'>
                         <h2> Orders </h2>

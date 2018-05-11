@@ -4,6 +4,7 @@ import './Cart.css';
 import Footer from '../footer/Footer';
 // import Checkout from '../checkout/Checkout';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import {getCart, deleteShow} from '../../ducks/reducer';
 import Stripe from '../stripe/Stripe';
 
@@ -42,6 +43,7 @@ class Cart extends Component{
                             <div className = 'cart_container_three' >
                                 <div className = "show_price"> ${e.price}.00 </div>
                                 <br/>
+                                <Link to = '/recommend'> <button className = 'go_to_similar'> Similar Shows </button> </Link>
                                 <button className = 'delete' onClick = { () => this.props.deleteShow(e.id)}> Remove </button>
                             </div>
                         

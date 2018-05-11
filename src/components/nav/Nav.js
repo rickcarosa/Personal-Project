@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 
-
 class Nav extends Component{
 
 
@@ -23,6 +22,7 @@ class Nav extends Component{
                             <Link to = '/dashboard'> <li> Home </li> </Link>
                             <Link to = '/shows'> <li> Shows </li> </Link>
                             <Link to = '/cart'> <li> Cart </li> </Link>
+                            <Link to = '/recommend'> <li> Recommend </li> </Link>
                             <Link to = '/order'> <li> Order </li> </Link>
                             <a href = {process.env.REACT_APP_LOGOUT_REDIRECT}> <li> Logout </li> </a>
                         </ul>
@@ -35,6 +35,7 @@ class Nav extends Component{
                             <Link to = '/dashboard'> Home </Link>
                             <Link to = '/shows'> Shows </Link>
                             <Link to = '/cart'> Cart </Link>
+                            <Link to = '/recommend'> <li> Recommend </li> </Link>
                             <Link to = '/order'> Order </Link>
                             <a href = {process.env.REACT_APP_LOGOUT_REDIRECT}> Logout</a>
                         </div>
