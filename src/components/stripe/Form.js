@@ -14,11 +14,12 @@ class Form extends Component{
     onSubmit(e){
         e.preventDefault();
         let name = _.split(this.props.user.display_name, ' ', 1)
-        this.props.stripe.createToken({name: 'Ricky Bobby'}).then(({token}) => {
+        let message = `Thank you, ${name}, your shows are on the way! -ShowMania`
+        this.props.stripe.createToken({name: this.props.user.display_name}).then(({token}) => {
             console.log('Received Stripe token:', token)
             axios.post('/api/charge', {token, amount: this.props.total}).then(res => {
-                alert(`${name}, thank you, your purchase has been made!`);
-                axios.post('/send', {user_email: this.props.user_email, message: this.props.message}).then( res => {
+                alert(`${name}, your purchase has been made!`);
+                axios.post('/send', {email: this.props.user.email, message}).then( res => {
                     console.log('here is the resonse', res)
                 })
                 this.props.history.push('/order')
@@ -26,15 +27,7 @@ class Form extends Component{
         });
     }
 
-    // onSubmit(e){
-    //     e.preventDefault();
-    //         axios.post('/send', {name, email, message}).then(res => {
-    //             console.log('here is the response', res)
-    //         }).catch((err) => {
-    //             console.log('here is the error', err)
-    //         })
-    //     }
-
+    
 
     render(){
 

@@ -128,24 +128,24 @@ app.post('/send', function (req, res, next){
             pass: process.env.EMAIL_PASSWORD
         }
     })
-})
-    sendEmail: (req, res) => {
-        const {user_email, message} = req.body;
+
+   
+        const {email, message} = req.body;
 
         const mailOptions = {
         from: process.env.EMAIL_USERNAME,
-        to: user_email,
+        to: email,
         subject: "Thanks for your purchase!",
         text: message
     }
-    transporter.sendMail(mailOptions, function(err,res){
+    transporter.sendMail(mailOptions, function(err,response){
         if(err){
         console.error('there was an error:', err)
         }else{
-        res.status(200).send(res)
+        res.status(200).send(response)
         }
     })
-}
+})
 
 
 
