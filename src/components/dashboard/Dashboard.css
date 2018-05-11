@@ -9,11 +9,13 @@
     color: #eac67a;
     cursor: pointer;
     font-size: 15px;
+    transition: all 0.5s ease 0s;
 }
 
 .show_button:hover{
     background-color: #eac67a;
     color: #984B43;
+    box-shadow: inset 0 0 0 3px #984b43;
 }
 
 .popular{

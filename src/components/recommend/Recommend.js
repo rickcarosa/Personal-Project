@@ -1,24 +1,22 @@
 import React, {Component} from 'react';
 import './Recommend.css'
-// import axios from 'axios';
+import axios from 'axios';
 import Nav from '../nav/Nav';
 import Footer from '../footer/Footer';
 import {Link} from 'react-router-dom';
 import {connect} from  'react-redux';
-import {getSimilar, addToCart} from '../../ducks/reducer';
+import {addToCart, getCart} from '../../ducks/reducer';
 
 class Recommend extends Component{
     constructor(){
         super()
         this.state = {
             api_key: '5ac62073c7fea542488a55bf2a3bfd54',
-            picture_path: 'https://image.tmdb.org/t/p/w500'
+            picture_path: 'https://image.tmdb.org/t/p/w500',
+            similar: []
         }
     }
-   
-    componentDidMount(){
-        this.props.getSimilar()
-    }
+    
     
     render(){
 
@@ -70,9 +68,9 @@ class Recommend extends Component{
 
 function mapStateToProps(state){
     return{
-        similar: state.similar,
+        // similar: state.similar,
         cart: state.cart
     }
 }
 
-export default connect(mapStateToProps, {getSimilar, addToCart}) (Recommend);
+export default connect(mapStateToProps, {getCart, addToCart}) (Recommend);

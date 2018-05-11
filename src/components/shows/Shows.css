@@ -30,11 +30,13 @@
     margin-left: 10px;
     font-size: 14px;
     cursor: pointer;
+    transition: all 0.5s ease 0s;
 }
 
 .find_shows:hover{
     background-color: #eac67a;
     color: #984b43;
+    box-shadow: inset 0 0 0 3px #984b43;
 }
 
 .search{
@@ -55,11 +57,13 @@
     color: #eac67a;
     cursor: pointer;
     font-size: 14px;
+    transition: all 0.5s ease 0s;
 }
 
 .add:hover{
     background-color: #eac67a;
     color: #984b43;
+    box-shadow: inset 0 0 0 3px #984b43;
 }
 
 .info{

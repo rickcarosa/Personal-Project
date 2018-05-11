@@ -26,11 +26,12 @@
     font-size: 20px;
     background-color: #eac67a;
     color: #984b43;
-    
+    transition: all 0.5s ease 0s;
 }
 
 .sign_in:hover{
     cursor: pointer;
+    box-shadow: inset 0 0 0 3px #984b43;
 }
 
 
