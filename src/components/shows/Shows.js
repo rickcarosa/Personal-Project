@@ -3,6 +3,7 @@ import Nav from '../nav/Nav';
 import Footer from '../footer/Footer';
 import axios from 'axios';
 import x from './x.png';
+import tv from './tv.png';
 import './Shows.css';
 import {connect} from 'react-redux';
 import {addToCart} from '../../ducks/reducer';
@@ -12,7 +13,9 @@ class Shows extends Component{
         super()
         this.state = {
             input: '',
-            shows: []
+            shows: [],
+            background: false,
+            clearBackground: true
         }
     }
 
@@ -28,6 +31,18 @@ class Shows extends Component{
                 shows: res.data
             })
             console.log(this.state.shows)
+        })
+    }
+
+    handleBackground(){
+        this.setState({
+            background: !this.state.background
+        })
+    }
+
+    handleClearBackground(){
+        this.setState({
+            clearBackground: !this.state.clearBackground
         })
     }
 
@@ -53,11 +68,22 @@ class Shows extends Component{
         return(
             <div className = 'get_shows_parent'>
                 <Nav/>
-                <div className = 'get_shows'>
-                    <input className = 'search' placeholder = 'Search Shows' onChange = {(event) => {this.addShows(event.target.value)}} /> 
-                    <button className = 'find_shows' onClick = {() => this.updateShows()}> Find Shows! </button>
-                </div>
-                <div className = 'showlist'> {showList} </div>
+                    <div className = 'background_content'>
+                        <div className = 'get_shows'>
+                            { this.state.clearBackground && <input className = 'search' placeholder = 'Search Shows' onChange = {(event) => {this.addShows(event.target.value)}} /> }
+                            { this.state.clearBackground && <button className = 'find_shows' onClick = {() => {this.updateShows(); this.handleBackground(); this.handleClearBackground()}}> Find Shows! </button> }    
+                        </div>
+                        { this.state.clearBackground && <img className = 'tv' src = {tv} alt = 'television'/> }
+                        <div className = 'get_shows_two'>
+                            <div className = 'search_two'> 
+                                { this.state.background && <input className = 'search' placeholder = 'Search Shows' onChange = {(event) => {this.addShows(event.target.value)}} /> }
+                                { this.state.background && <button className = 'find_shows' onClick = {() => this.updateShows()}> Find Shows! </button>}
+                            </div>
+                            <div>
+                                { this.state.background && <div className = 'showlist'> {showList} </div>}
+                            </div>
+                        </div>
+                    </div>
                 <Footer/>
             </div>
         )

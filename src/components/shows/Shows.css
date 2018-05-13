@@ -4,8 +4,23 @@
     color: #233237;
 }
 
+.background_content{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.tv{
+    width: 70%;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
 .x{
-    width: 18%;
+    width: 60%;
     display: block;
     margin: auto;
     margin-bottom: 20px;
@@ -15,12 +30,19 @@
     text-align: center;
     margin: 20px 0;
     height: 50px;
+    position: absolute;
+    margin-top: 20%;
+}
+
+.search_two{
+    margin-top: 20px;
 }
 
 .showlist{
     height: 100vh;
     width: 100%;
     overflow: auto;
+    margin-top: 40px;
 }
 
 .find_shows{
@@ -96,5 +118,15 @@
 
     .find_shows{
         padding: 8px 20px;
+        margin-top: 20px;
+    }
+
+    .tv{
+        height: 50vh;
+        width: 87%;
+    }
+
+    .get_shows{
+        width: 56%
     }
 }
