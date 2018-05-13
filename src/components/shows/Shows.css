@@ -70,6 +70,11 @@
     text-align: center;
 }
 
+.p_one{
+    font-size: 20px;
+    text-decoration: underline;
+}
+
 @media(max-width: 375px){
     .x{
         width: 35%;

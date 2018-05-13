@@ -40,7 +40,7 @@ class Shows extends Component{
                     <div className = 'info'>
                         {e.show.image ? ( <div> <img className = 'x' src = {e.show.image.medium} alt = "showImg"/> </div> ) : <img className = "x" src = {x} alt = 'N/A'/> } 
                         <div className = 'data'>
-                            <p> {e.show.name} </p> 
+                            <p className = 'p_one'> {e.show.name} </p> 
                             {e.show.rating.average ? <div> <p> Rating: {e.show.rating.average} </p> </div> : <p> Rating: N/A </p>}
                             {e.show.rating.average ? <div className = 'price'> <p> Price: ${price} </p> </div> : <p> Price: ${Math.trunc((Math.random() * 100))} </p> }
                         </div>

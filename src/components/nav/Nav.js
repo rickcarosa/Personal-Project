@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './Nav.css';
+// import star from './star.png'
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
@@ -16,6 +17,9 @@ class Nav extends Component{
 
         return(
             <header className = 'Navbar'>
+                {/* <div> 
+                <img className = 'star' src = {star} alt = 'star'/>
+                </div> */}
                 <Link to = '/dashboard'> <div className = "title"> ShowMania </div> </Link>
                     <nav className = 'navigation'>
                         <ul>

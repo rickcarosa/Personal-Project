@@ -44,7 +44,7 @@ class Login extends Component{
                                 shape:{
                                     type: 'star',
                                     stroke: {
-                                        width: 8,
+                                        width: 6,
                                         color: '#984b43'
                                     }
                                 }
