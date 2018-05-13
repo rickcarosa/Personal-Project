@@ -43,7 +43,6 @@ class Cart extends Component{
                             <div className = 'cart_container_three' >
                                 <div className = "show_price"> ${e.price}.00 </div>
                                 <br/>
-                                <Link to = '/recommend'> <button className = 'go_to_similar'> Similar Shows </button> </Link>
                                 <button className = 'delete' onClick = { () => this.props.deleteShow(e.id)}> Remove </button>
                             </div>
                         
@@ -69,6 +68,7 @@ class Cart extends Component{
             total = {totalPrice * 100}/> */}
 
             <div className = 'containter_buy'>
+                <Link to = '/ratings'> <button className = 'go_to_ratings'> Compare Shows </button> </Link>
                 <p className = 'total_price'> Total: ${totalPrice}.00 </p>
                 <p className = 'card_details'> Card Details:</p>
             <Stripe 

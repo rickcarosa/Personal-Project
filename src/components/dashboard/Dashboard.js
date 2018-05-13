@@ -13,7 +13,6 @@ class Dashboard extends Component{
         super()
         this.state = {
             popular: [],
-            api_key: '5ac62073c7fea542488a55bf2a3bfd54',
             picture_path: 'https://image.tmdb.org/t/p/w500'
 
         }
@@ -21,7 +20,7 @@ class Dashboard extends Component{
 
     componentDidMount(){
         this.props.getUser();
-        axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=${this.state.api_key}&language=en-US`).then( res => {
+        axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`).then( res => {
             this.setState({
                 popular: res.data.results
             }, ()=>{

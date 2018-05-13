@@ -6,7 +6,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import Shows from './components/shows/Shows';
 import Cart from './components/cart/Cart';
 import Order from './components/order/Order';
-import Recommend from './components/recommend/Recommend';
+import Ratings from './components/ratings/Ratings';
 
 
 class App extends Component {
@@ -26,7 +26,7 @@ class App extends Component {
           <Route path = '/dashboard' render = {() => <Dashboard baseUrl = {this.state.baseUrl}/>}/>
           <Route path = '/shows' render = {() => <Shows baseUrl = {this.state.baseUrl}/>}/>
           <Route path = '/cart' component = {Cart}/>
-          <Route path = '/recommend' component = {Recommend}/>
+          <Route path = '/ratings' component = {Ratings}/>
           <Route path = '/order' component = {Order}/>
         </Switch>
       </HashRouter>

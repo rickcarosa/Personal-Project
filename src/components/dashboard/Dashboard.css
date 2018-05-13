@@ -30,7 +30,7 @@
 
 .poster>div:hover{
     animation: opacity 1s ease forwards;
-    opacity: .3;
+    opacity: .1;
     cursor: pointer;
 }
 

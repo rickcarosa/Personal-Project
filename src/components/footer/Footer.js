@@ -35,9 +35,9 @@ function Footer(){
                 </div>
                 <div className = 'footer_section'>
                     <div className = 'footer_section_header'>
-                        <h2> Recommend </h2>
+                        <h2> Ratings </h2>
                             <div className = 'footer_links'>
-                                <Link to = '/recommends'> <div> See Similar </div> </Link>
+                                <Link to = '/ratings'> <div> Compare Shows </div> </Link>
                             </div>
                     </div>
                 </div>
