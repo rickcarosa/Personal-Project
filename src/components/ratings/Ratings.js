@@ -31,7 +31,7 @@ class Ratings extends Component{
                        label: 'Your Shows',
                        data: myRatings,
                        backgroundColor: '#233237',
-                       fill: false,
+                       borderColor: '#eac67a',
                        
                    },
                ],
@@ -46,10 +46,7 @@ class Ratings extends Component{
                },
                legend: {
                    display: true, 
-                   position: 'right',
-                   lables: {
-                       fontColor: 'blue',
-                   },
+                   position: 'top',
                },
                scales: {    
                     yAxes: [{
@@ -73,7 +70,7 @@ class Ratings extends Component{
                             fontSize: 20,
                             fontColor: '#233237'
                         },
-                        barThickness: 100,
+                        barThickness: 80,
                     }]
                 },
                 animation: {
@@ -117,7 +114,7 @@ class Ratings extends Component{
                             null
                         }
                         {
-                            this.props.cart.length === 0 ? <Link to = '/shows'> <button className = 'back'> Add to Cart First! </button> </Link> 
+                            this.props.cart.length === 0 ? <Link to = '/shows'> <button className = 'wait'> Add to Cart First! </button> </Link> 
                         :
                             <Link to = '/cart'> <button className = 'back'> Back to Cart! </button> </Link>
                         }
