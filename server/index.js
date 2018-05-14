@@ -58,10 +58,7 @@ passport.use( new Auth0Strategy({
             }
             else{
                 db.create_user([displayName, id, picture, emails[0].value]).then ( createdUser => {
-                    // db.create_cart(user[0].id).then(cart => {
-                        //     return done(null, cart[0].user_id)
-                            return done(null, createdUser[0].id)
-                        // })
+                     return done(null, createdUser[0].id)
                     }).catch( e => console.log(e))
             }
         })

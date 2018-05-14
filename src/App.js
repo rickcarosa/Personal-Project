@@ -13,7 +13,7 @@ class App extends Component {
     constructor(){
       super()
       this.state = {
-        baseUrl: 'http://api.tvmaze.com'
+        baseUrl: 'https://api.tvmaze.com'
       }
     }
 
