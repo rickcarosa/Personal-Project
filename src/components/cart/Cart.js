@@ -25,13 +25,12 @@ class Cart extends Component{
     }
 
     render(){
-        console.log(this.props.cart)
       
         let newCart = null
         let totalPrice = null
         if(this.props.cart.length > 0){
             newCart = this.props.cart.map((e, i) => {
-                // console.log(e)
+                
                 return(
                     <div className = 'cart_container' key = {e.id}>
                         <img className = 'x_cart' src = {e.image_cart} alt = 'show_image'/>
@@ -53,11 +52,8 @@ class Cart extends Component{
             })
             totalPrice = this.props.cart.reduce((acc, curr) => {
                 return acc + curr.price
-            }, 0)
-
-            
+            }, 0)   
         }
-            console.log(totalPrice)
         
     return(
         <div className = "Cart">

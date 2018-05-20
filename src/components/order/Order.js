@@ -60,11 +60,8 @@ class Order extends Component{
         let finalOrder = []
          newOrder = _.uniqBy(this.props.order, 'show_title')
         if(this.props.order.length > 0){
-            console.log(this.props.order)
             finalOrder = newOrder.map( (e, i) => {
                 let time = new Date(e.order_ts.split('.')[0] + "+0600");  // use GMT-0000 if passing in just the date, +0600 because I am recieving time in database 6 hours ahead of UTC
-                console.log(time);
-                console.log(e.order_ts)
                 return(
                     <div className = 'orderInfo' key = {i}>
                         

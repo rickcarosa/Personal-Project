@@ -90,14 +90,12 @@ class Ratings extends Component{
 
     generate(){
         axios.get(`https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`).then( resp => {
-            console.log(resp)
             let topRated = Object.assign({}, this.state.chartData)
-            console.log(topRated)
             topRated.datasets[0].data = resp.data.results.map(e => e.vote_average)
             this.setState({
                 data: topRated
             })
-        }).catch(console.error)
+        })
     }
     
     

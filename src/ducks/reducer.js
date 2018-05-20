@@ -37,7 +37,6 @@ export function getCart(){
 
 export function addToCart(name, description, picture, price){
     let addCart = axios.put('/api/show', {name, description, picture, price}).then( res => {
-        console.log(res.data)
         return res.data;
     })
     return{
@@ -47,7 +46,6 @@ export function addToCart(name, description, picture, price){
 }
 
 export function deleteShow(id){
-    console.log(id)
     let deleteShow = axios.delete(`/api/show/${id}`).then( res => {
         return res.data;
     })
@@ -83,14 +81,12 @@ export default function reducer(state = initialState, action){
         case GET_USER_INFO + '_FULFILLED':
             return Object.assign( {}, state, {user: action.payload})
         case GET_CART + '_FULFILLED':
-        // console.log(action.payload)
             return Object.assign( {}, state, {cart: [...action.payload]})
         case ADD_TO_CART + '_FULFILLED':
             return Object.assign( {}, state, {cart: [...action.payload]})
         case DELETE_SHOW_FROM_CART + '_FULFILLED':
             return Object.assign( {}, state, {cart: action.payload})
         case ADD_TO_ORDER + '_FULFILLED':
-        // console.log(action.payload, 'booooooooo')
             return Object.assign( {}, state, {order: [...action.payload]})
         case DELETE_ORDER + '_FULFILLED':
             return Object.assign( {}, state, {order: action.payload})

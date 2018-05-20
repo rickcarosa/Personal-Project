@@ -24,7 +24,7 @@ class Dashboard extends Component{
             this.setState({
                 popular: res.data.results
             }, ()=>{
-                console.log(this.state.popular)
+                // console.log(this.state.popular)
             })
         })
     }
