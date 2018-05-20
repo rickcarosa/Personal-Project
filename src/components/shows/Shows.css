@@ -20,7 +20,7 @@
 }
 
 .x{
-    width: 60%;
+    width: 25%;
     display: block;
     margin: auto;
     margin-bottom: 20px;
@@ -36,6 +36,8 @@
 
 .search_two{
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .showlist{
