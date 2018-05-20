@@ -30,7 +30,6 @@ class Shows extends Component{
             this.setState({
                 shows: res.data
             })
-            console.log(this.state.shows)
         })
     }
 

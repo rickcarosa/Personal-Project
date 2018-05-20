@@ -42,5 +42,4 @@ where auth_id = $1;
 select * form users
 where id = $1; 
 
-
 -- select title, quantity, price, product.id from carts
