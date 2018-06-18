@@ -55,7 +55,7 @@ a:hover{
     }
 }
 
-@media screen and (min-width: 375px) and (max-width: 414px){
+@media screen and (min-width: 360px) and (max-width: 414px){
     h2{
         font-size: large;
         text-align: center;

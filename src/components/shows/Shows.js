@@ -75,8 +75,8 @@ class Shows extends Component{
                         { this.state.clearBackground && <img className = 'tv' src = {tv} alt = 'television'/> }
                         <div className = 'get_shows_two'>
                             <div className = 'search_two'> 
-                                { this.state.background && <input className = 'search' placeholder = 'Search Shows' onChange = {(event) => {this.addShows(event.target.value)}} /> }
-                                { this.state.background && <button className = 'find_shows' onClick = {() => this.updateShows()}> Find Shows! </button>}
+                                { this.state.background && <input className = 'search_three' placeholder = 'Search Shows' onChange = {(event) => {this.addShows(event.target.value)}} /> }
+                                { this.state.background && <button className = 'find_shows_two' onClick = {() => this.updateShows()}> Find Shows! </button>}
                             </div>
                             <div>
                                 { this.state.background && <div className = 'showlist'> {showList} </div>}
