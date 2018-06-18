@@ -48,7 +48,7 @@ class Dashboard extends Component{
                 <div key = {e.name}>
                     <div className = 'popular'>
                             <div className = 'poster' style={style} 
-                                 onClick = {() => addToCart(e.name, e.overview, this.state.picture_path+e.poster_path, price )}>
+                                 onClick = {() => {addToCart(e.name, e.overview, this.state.picture_path+e.poster_path, price ); alert('Item Added!')}}>
                              <div>
                                 ADD NOW!
                              </div>
@@ -60,10 +60,10 @@ class Dashboard extends Component{
         })
 
         return(
-            <div> 
+            <div className = 'Dashboard'> 
                 <Nav/>
                 <div className = 'container'>
-                    <h1> Hi {name}, See Whats Trending </h1>
+                    <h1 className = 'greeting'> Hi {name}, See Whats Trending </h1>
                     <Link to = '/shows'> <button className = 'show_button'> Search for Shows! </button> </Link>
                 </div>
                 <div className='show_container'>

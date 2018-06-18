@@ -48,7 +48,7 @@
   }
 
 
-  @media(max-width: 750px){
+  @media(max-width: 768px){
     .Navbar{
       justify-content: space-around;
     }
@@ -103,6 +103,12 @@
     display: block;
   }
 
+}
+
+@media screen and (max-width: 414px){
+  .Navbar{
+    width: 
+  }
 }
 
 @media(max-width: 375px){

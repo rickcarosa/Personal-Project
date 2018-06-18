@@ -3,7 +3,7 @@
     height: 130px;
     background: #233237;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-top: 20px;
 }
@@ -38,20 +38,24 @@ a:hover{
     padding-top: 20px;
     padding-bottom: 20px;
     background: #233237;
-}   
+}
 
-@media(max-width: 800px){
+@media screen and (min-width: 1024px){
+    
+}
+
+@media screen and (max-width: 800px){
     .copyright{
         font-size: 12px;
     }
 }
-@media(max-width: 650px){
+@media screen and (max-width: 650px){
     .copyright{
         font-size: 8px;
     }
 }
 
-@media(max-width: 375px){
+@media screen and (min-width: 375px) and (max-width: 414px){
     h2{
         font-size: large;
         text-align: center;
@@ -79,5 +83,7 @@ a:hover{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         padding-bottom: 10px;
+        justify-content: right;
     }
 }
+
