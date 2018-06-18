@@ -38,8 +38,7 @@ class Dashboard extends Component{
             let style = {
                 background: `url(${this.state.picture_path+e.poster_path})`,
                 width: '170px',
-                height: '285px',
-                padding: '5px',
+                height: '255px',
                 backgroundpPosition: 'center',
                 backgroundSize: '100%',
                 backgroundRepeat: 'no-repeat'   

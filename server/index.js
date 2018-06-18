@@ -93,6 +93,7 @@ app.get('/auth/me', function(req, res) {
 
 app.get('/logout', function(req, res) {
     req.logOut();
+    req.session.destroy();
     res.redirect(FAILURE_REDIRECT)
 })
 
@@ -126,7 +127,6 @@ app.post('/send', function (req, res, next){
             pass: process.env.EMAIL_PASSWORD
         }
     })
-
    
         const {email, message} = req.body;
 
