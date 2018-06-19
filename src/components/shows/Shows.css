@@ -214,7 +214,7 @@
     }
 }
 
-@media screen and (min-width: 375px) and (max-width: 413px){
+@media screen and (min-width: 360px) and (max-width: 413px){
     .x{
         width: 35%;
     }
