@@ -65,7 +65,7 @@
     height: 80vh;
 }
 
-@media(max-width: 375px){
+@media screen and (min-width: 360px){
     .chart{
         width: 100%;
     }

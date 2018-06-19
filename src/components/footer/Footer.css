@@ -40,10 +40,6 @@ a:hover{
     background: #233237;
 }
 
-@media screen and (min-width: 1024px){
-    
-}
-
 @media screen and (max-width: 800px){
     .copyright{
         font-size: 12px;
