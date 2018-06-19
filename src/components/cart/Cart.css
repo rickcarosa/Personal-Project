@@ -33,7 +33,6 @@
 }
 
 .total_price{
-    margin-left: 50px;
     color: #233237;
     font-size: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -41,7 +40,6 @@
 
 .card_details{
     color: #233237;
-    margin-left: 50px;
     font-size: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
@@ -93,7 +91,6 @@
     background-color: #233237;
     color: #eac67a;
     font-size: 16px;
-    margin-left: 50px;
     transition: all 0.5s ease 0s;
     margin-top: 10px;
 }
@@ -104,13 +101,23 @@
     box-shadow: inset 0 0 0 3px #984b43;
 }
 
-@media(max-width: 375px){
+@media screen and (min-width: 769px){
+    .StripeElement{
+        width: 400px;
+    }
+
+    .go_to_ratings, .total_price, .card_details, .StripeElement, .purchase{
+        margin-left: 3rem;
+    }
+}
+
+@media screen and (min-width: 360px) and (max-width: 768px){
     .cart_container{
         flex-direction: column;
     }
 
     .x_cart{
-        width: 35%;
+        width: 26%;
         height: 250px;
         margin: auto;
         margin-top: 30px;
@@ -136,23 +143,35 @@
         padding: 10px 30px;
     }
 
-    Checkout{
+    /* Checkout{
         background-color: #233237;
         background: none;
         box-shadow: #233237 0px 1px 0px;
-    }
+    } */
     
     .total_price{
-        margin-left: 30%;
+        display: flex;
+        justify-content: center;
     }
 
     .card_details{
-        margin-left: 32%;
+        display: flex;
+        justify-content: center;
     }
 
     .go_to_ratings{
-        margin-left: 26%;
+        margin-left: calc(50% - 80px);
         margin-top: 40px;
+    }
+
+    /* stripe folder */
+    .purchase{
+        margin-left: calc(50% - 57px);
+    }
+
+    /* stripe folder */
+    .StripeElement{
+        margin: 0 calc(50% - 177px);
     }
 }
 
