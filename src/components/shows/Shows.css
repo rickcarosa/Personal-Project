@@ -2,6 +2,7 @@
     position: relative;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: #233237;
+    height: 100vh;
 }
 
 .background_content{
@@ -121,7 +122,58 @@
     text-decoration: underline;
 }
 
-@media screen and (max-width: 414px){
+@media screen and (min-width: 769){
+    .showlist{
+        margin-top: 40px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .background_content{
+        height: 45.5rem;
+    }
+
+    .tv{
+        height: 33rem;
+        margin-top: 60px;
+        width: 80%;
+    }
+
+    .get_shows{
+        margin-top: 30%;
+    }
+
+    .showlist{
+        height: 650px;
+        margin-top: 20px;    
+    }
+
+    .x{
+        width: 35%;
+    }
+
+    .p_one{
+        font-size: 35px;
+    }
+
+    .show_rating{
+        font-size: 28px;
+    }
+
+    .price{
+        font-size: 28px;
+    }
+
+    .search_two{
+        margin-top: 15px;
+    }
+}
+
+@media screen and (min-width: 414px) and (max-width: 767px){
+    .background_content{
+        height: 439px;
+    }
+
     .get_shows{
         position: absolute;
         margin-top: 20%;
@@ -132,8 +184,8 @@
 
     .tv{
         width: 87%;
-        height: 52vh;
-        margin-top: 40px;
+        height: 55vh;
+        margin-top: 20px;
     }
 
     .find_shows{
@@ -145,13 +197,24 @@
     }
 
     .p_one{
-        font-size: 25px
+        font-size: 25px;
     }
 
-    
+    .show_rating{
+        font-size: 20px;
+    }
+
+    .price{
+        font-size: 20px;
+    }
+
+    .showlist{
+        height: 350px;
+        margin-top: 25px;
+    }
 }
 
-@media screen and (max-width: 375px){
+@media screen and (min-width: 375px) and (max-width: 413px){
     .x{
         width: 35%;
     }
@@ -178,9 +241,23 @@
     .tv{
         height: 50vh;
         width: 87%;
+        margin-top: 40px;
     }
 
     .get_shows{
         width: 56%
     }
+
+    .background_content{
+        height: 371px;
+    }
+
+    .showlist{
+        height: 288px;
+        margin-top: 20px;
+    }
 }
+
+
+
+        

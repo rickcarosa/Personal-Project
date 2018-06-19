@@ -55,7 +55,7 @@ class Shows extends Component{
                         {e.show.image ? ( <div> <img className = 'x' src = {e.show.image.medium} alt = "showImg"/> </div> ) : <img className = "x" src = {x} alt = 'N/A'/> } 
                         <div className = 'data'>
                             <p className = 'p_one'> {e.show.name} </p> 
-                            {e.show.rating.average ? <div> <p> Rating: {e.show.rating.average} </p> </div> : <p> Rating: N/A </p>}
+                            {e.show.rating.average ? <div> <p className = 'show_rating'> Rating: {e.show.rating.average} </p> </div> : <p> Rating: N/A </p>}
                             {e.show.rating.average ? <div className = 'price'> <p> Price: ${price} </p> </div> : <p> Price: ${Math.trunc((Math.random() * 100))} </p> }
                         </div>
                         <button className = 'add' onClick = {() => addToCart(e.show.name, e.show.summary, e.show.image.medium, price)}> Add to Cart! </button>
