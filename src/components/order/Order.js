@@ -5,7 +5,7 @@ import './Order.css';
 import {connect} from 'react-redux';
 import { addToOrder, getCart} from '../../ducks/reducer';
 import _ from 'lodash';
-
+import tv from './tv.png';
 
 class Order extends Component{
     constructor(){
@@ -81,15 +81,17 @@ class Order extends Component{
         return(
             <div className = 'Order'>
                 <Nav/>
-                    { this.state.title && <div className = 'order_title'> Your Order! </div>}
                 <div className = 'background'>
                  { this.state.orderButton && <button className = 'add_order' onClick = {() => { this.loopOrders( orderTotal ); this.handleClick(); this.handleButton(); this.handleOrderButton(); this.handleTitle()}}> Get Your Order! </button>}
+                 { this.state.orderButton ? <img className = 'tv_order' src = {tv} alt = 'television'/> : null}
+                 <div className = 'order_title_container'> 
+                    { this.state.title && <span className = 'order_title'> Your Order! </span>}
+                 </div>
                     <div className = 'newOrder'> {finalOrder}  
                     { this.state.total_price && <div className = 'orderInfo'> Order Total: ${orderTotal}.00 </div> }
                     { this.state.button && <a href = {process.env.REACT_APP_LOGOUT_REDIRECT}> <button className = 'order_logout'> Logout </button> </a> }
                     </div>
                 </div>
-                
                 <Footer/>
             </div>
         )
