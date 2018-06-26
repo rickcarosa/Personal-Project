@@ -45,6 +45,15 @@ class Shows extends Component{
         })
     }
 
+    handleKeyPress(event){
+        if (event.key === "Enter"){
+            this.setState({
+                background: !this.state.background,
+                clearBackground: !this.state.clearBackground
+            })
+        }
+    }
+
     render(){
 
         var showList = this.state.shows.map( (e, i) => {
@@ -69,7 +78,7 @@ class Shows extends Component{
                 <Nav/>
                     <div className = 'background_content'>
                         <div className = 'get_shows'>
-                            { this.state.clearBackground && <input className = 'search' placeholder = 'Search Shows' onChange = {(event) => {this.addShows(event.target.value)}} /> }
+                            { this.state.clearBackground && <input className = 'search' placeholder = 'Search Shows' onChange = {(event) => {this.addShows(event.target.value)}} onKeyPress = {(event)=>{this.handleKeyPress(event); this.updateShows()}} /> }
                             { this.state.clearBackground && <button className = 'find_shows' onClick = {() => {this.updateShows(); this.handleBackground(); this.handleClearBackground()}}> Find Shows! </button> }    
                         </div>
                         { this.state.clearBackground && <img className = 'tv' src = {tv} alt = 'television'/> }
