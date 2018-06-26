@@ -58,8 +58,8 @@ class Cart extends Component{
     return(
         <div className = "Cart">
             <Nav/>
-            {this.props.cart.length == 0 ? <div className = 'message'> Your cart is empty! Click here to add shows! </div> : null}
-            {this.props.cart.length == 0 ? <Link to = '/shows'> <button className = 'message_button'> Add Now! </button> </Link> : null}
+            {this.props.cart.length === 0 ? <div className = 'message'> Your cart is empty! Click here to add shows! </div> : null}
+            {this.props.cart.length === 0 ? <Link to = '/shows'> <button className = 'message_button'> Add Now! </button> </Link> : null}
             <div className = 'newcart'> {newCart}  </div>
         
              {/* <Checkout 
