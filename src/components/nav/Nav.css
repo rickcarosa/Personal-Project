@@ -27,7 +27,7 @@
   }
 
   a:active{
-    color: #EAC67A;
+    color: #984B43;
   }
   
   li {
@@ -105,11 +105,11 @@
 
 }
 
-@media screen and (max-width: 414px){
+/* @media screen and (max-width: 414px){
   .Navbar{
     width: 
   }
-}
+} */
 
 @media(max-width: 375px){
   .dropbtn{
